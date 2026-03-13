@@ -1,0 +1,292 @@
+[
+  {
+    "id": "strategy-product-vision",
+    "name": "Product Vision & Strategy",
+    "type": "service",
+    "description": "Define the product vision, articulate the value proposition, and align stakeholders around a shared strategic direction. Covers product strategy, roadmapping, and strategic alignment across teams and business units.",
+    "applicable_stages": [1, 2, 5],
+    "industries": ["all"],
+    "tags": ["product vision", "value proposition", "strategy", "alignment", "product strategy", "roadmap"],
+    "team_ids": ["team-001", "team-002"]
+  },
+  {
+    "id": "strategy-service-design",
+    "name": "Service Design & Journey Mapping",
+    "type": "service",
+    "description": "Design end-to-end service experiences by mapping frontstage and backstage interactions, identifying gaps, and orchestrating touchpoints across channels. Includes journey mapping, service blueprints, and touchpoint optimization.",
+    "applicable_stages": [2, 3, 6],
+    "industries": ["all"],
+    "tags": ["service design", "journey", "touchpoints", "experience", "process", "blueprint"],
+    "team_ids": ["team-001", "team-003"]
+  },
+  {
+    "id": "strategy-experience-governance",
+    "name": "Experience Strategy & Governance",
+    "type": "service",
+    "description": "Establish experience strategy frameworks, maturity assessment, and governance models. Includes design maturity benchmarking, capability building roadmaps, and organizational alignment for sustained experience excellence.",
+    "applicable_stages": [2, 7, 8],
+    "industries": ["all"],
+    "tags": ["experience strategy", "governance", "maturity", "capability", "design operations", "assessment"],
+    "team_ids": ["team-001"]
+  },
+  {
+    "id": "design-ux-ui",
+    "name": "UX/UI Design & Architecture",
+    "type": "service",
+    "description": "End-to-end UX/UI design from information architecture and interaction design through high-fidelity visual interfaces. Covers navigation patterns, interaction flows, responsive design, and pixel-perfect production-ready UI.",
+    "applicable_stages": [3, 6],
+    "industries": ["all"],
+    "tags": ["UX", "UI design", "interaction design", "information architecture", "visual design", "interface"],
+    "team_ids": ["team-003"]
+  },
+  {
+    "id": "design-rapid-prototyping",
+    "name": "Rapid Prototyping & Validation",
+    "type": "service",
+    "description": "Rapidly generate interactive prototypes using AI-assisted tools, conduct usability testing, and run structured validation sessions with users and stakeholders to validate design decisions and test assumptions before development.",
+    "applicable_stages": [3, 4, 6],
+    "industries": ["all"],
+    "tags": ["prototyping", "usability testing", "AI", "validation", "user research", "concept validation", "interactive"],
+    "team_ids": ["team-002", "team-003"]
+  },
+  {
+    "id": "design-systems",
+    "name": "Design Systems",
+    "type": "service",
+    "description": "Comprehensive design system development from architecture through implementation and governance. Includes component libraries, design tokens, documentation, naming conventions, versioning, contribution workflows, and cross-team adoption frameworks.",
+    "applicable_stages": [5, 6, 7],
+    "industries": ["all"],
+    "tags": ["design system", "architecture", "components", "tokens", "documentation", "governance", "scalability"],
+    "team_ids": ["team-003"]
+  },
+  {
+    "id": "design-ai-mvp",
+    "name": "AI-Powered MVP Development",
+    "type": "service",
+    "description": "Use AI-assisted tools (Factory.AI) to rapidly generate functional MVPs and working prototypes, compressing the path from concept to testable product. Accelerate hypothesis-to-proof cycles with lean experimentation and automated development.",
+    "applicable_stages": [3, 4, 6],
+    "industries": ["all"],
+    "tags": ["AI", "MVP", "rapid", "functional", "Factory.AI", "automation", "hypothesis", "proof of concept"],
+    "team_ids": ["team-002", "team-006"]
+  },
+  {
+    "id": "brand-identity-systems",
+    "name": "Digital Brand Identity & Systems",
+    "type": "service",
+    "description": "Develop comprehensive digital brand identity systems covering logos, visual identity, color palettes, typography, iconography, motion design, and reusable brand asset libraries. Translate offline brand guidelines into digital expressions across all platforms.",
+    "applicable_stages": [5, 6, 7],
+    "industries": ["all"],
+    "tags": ["brand", "visual identity", "logo", "color", "typography", "iconography", "motion design", "brand assets"],
+    "team_ids": ["team-004"]
+  },
+  {
+    "id": "brand-expression-ds",
+    "name": "Brand Expression for Design Systems",
+    "type": "service",
+    "description": "Define how brand identity is expressed within design systems through token mapping, component theming, brand-aware interaction patterns, and systematic brand application frameworks that ensure consistency at scale.",
+    "applicable_stages": [6, 7],
+    "industries": ["all"],
+    "tags": ["brand expression", "design system", "theming", "tokens", "brand consistency"],
+    "team_ids": ["team-003", "team-004"]
+  },
+  {
+    "id": "brand-marketing-strategy",
+    "name": "Marketing Strategy & Positioning",
+    "type": "service",
+    "description": "Develop marketing strategies, brand positioning, go-to-market plans, and communication frameworks that amplify product impact. Covers market analysis, competitive positioning, messaging architecture, and campaign strategy.",
+    "applicable_stages": [1, 2, 5, 8],
+    "industries": ["all"],
+    "tags": ["marketing strategy", "positioning", "go-to-market", "brand strategy", "messaging", "campaign"],
+    "team_ids": ["team-004"]
+  },
+  {
+    "id": "immersive-facilitation-gaming",
+    "name": "Facilitation & Serious Gaming",
+    "type": "service",
+    "description": "Design and facilitate immersive workshops using serious gaming mechanics, custom game development, and gamification to drive engagement, strategic thinking, creative problem-solving, and collective decision-making. Includes Transfopoly and custom serious games.",
+    "applicable_stages": [3, 4],
+    "industries": ["all"],
+    "tags": ["serious gaming", "workshop", "facilitation", "gamification", "co-creation", "decision-making", "strategy"],
+    "team_ids": ["team-005"]
+  },
+  {
+    "id": "immersive-spatial-3d",
+    "name": "Spatial & 3D Experiences",
+    "type": "service",
+    "description": "Transform complex data into spatial visualizations, create 3D digital twins for products and facilities, and build browser-native interactive 3D experiences. Enables virtual walkthroughs, configuration, and immersive data exploration.",
+    "applicable_stages": [5, 6, 7],
+    "industries": ["all"],
+    "tags": ["data visualization", "spatial", "3D", "digital twin", "web 3D", "interactive", "showcase"],
+    "team_ids": ["team-006"]
+  },
+  {
+    "id": "immersive-ar-vr",
+    "name": "AR/VR Applications",
+    "type": "service",
+    "description": "Deploy augmented and virtual reality solutions for service operations, field support, remote assistance, and enhanced situational awareness. Real-time AR overlays and immersive VR environments for training and operations.",
+    "applicable_stages": [6, 7],
+    "industries": ["all"],
+    "tags": ["AR", "VR", "augmented reality", "virtual reality", "field operations", "remote assistance"],
+    "team_ids": ["team-006"]
+  },
+  {
+    "id": "immersive-training",
+    "name": "Immersive Training & Learning",
+    "type": "service",
+    "description": "Design and build immersive training and onboarding environments that accelerate learning, improve retention, and simulate real-world scenarios through interactive, gamified learning experiences.",
+    "applicable_stages": [6, 7],
+    "industries": ["all"],
+    "tags": ["training", "onboarding", "immersive", "simulation", "learning", "education"],
+    "team_ids": ["team-005", "team-006"]
+  },
+  {
+    "id": "delivery-agile",
+    "name": "Agile Product Delivery",
+    "type": "service",
+    "description": "Embed design into agile and hybrid delivery workflows with continuous collaboration between design, product, and engineering. Covers backlog structuring, prioritization, release planning, and sprint-level design delivery aligned to business value.",
+    "applicable_stages": [4, 5, 6, 7],
+    "industries": ["all"],
+    "tags": ["agile", "delivery", "collaboration", "backlog", "prioritization", "release planning", "sprint"],
+    "team_ids": ["team-002"]
+  },
+  {
+    "id": "delivery-design-dev-ops",
+    "name": "Design-to-Development Operations",
+    "type": "service",
+    "description": "Establish efficient design-to-development handoff processes with clear specs, redlines, design systems integration, and continuous feedback loops. Ensure seamless collaboration and iteration between design and engineering teams.",
+    "applicable_stages": [6, 7],
+    "industries": ["all"],
+    "tags": ["handoff", "development", "iteration", "specs", "collaboration", "design-dev", "operations"],
+    "team_ids": ["team-003"]
+  },
+  {
+    "id": "delivery-measurement",
+    "name": "Experience Measurement & Optimization",
+    "type": "service",
+    "description": "Define experience KPIs, implement measurement frameworks, analytics instrumentation, and establish optimization loops to continuously improve product experiences. Data-driven experience refinement and impact tracking.",
+    "applicable_stages": [7, 8],
+    "industries": ["all"],
+    "tags": ["measurement", "KPIs", "optimization", "analytics", "experience", "data-driven"],
+    "team_ids": ["team-001", "team-002"]
+  },
+  {
+    "id": "fw-value-proposition-canvas",
+    "name": "Value Proposition Canvas",
+    "type": "framework",
+    "description": "Structured framework for mapping customer jobs, pains, and gains against product features and value creators. Ensures product vision is rooted in real user needs.",
+    "applicable_stages": [1, 2, 3],
+    "industries": ["all"],
+    "tags": ["value proposition", "product vision", "customer needs", "strategy", "alignment"],
+    "team_ids": ["team-001", "team-002"]
+  },
+  {
+    "id": "fw-service-blueprint",
+    "name": "Service Blueprint Framework",
+    "type": "framework",
+    "description": "Methodology for mapping the full service ecosystem: user actions, frontstage touchpoints, backstage processes, and support systems in a single visual artifact.",
+    "applicable_stages": [2, 3, 6],
+    "industries": ["all"],
+    "tags": ["service design", "blueprint", "process", "touchpoints", "ecosystem"],
+    "team_ids": ["team-001", "team-003"]
+  },
+  {
+    "id": "fw-double-diamond",
+    "name": "Double Diamond",
+    "type": "framework",
+    "description": "Overarching design process framework with four phases: Discover, Define, Develop, Deliver. Guides teams from problem exploration through solution delivery with structured divergent/convergent thinking.",
+    "applicable_stages": [1, 2, 3, 4, 5, 6],
+    "industries": ["all"],
+    "tags": ["design thinking", "process", "discovery", "delivery", "methodology"],
+    "team_ids": ["team-001"]
+  },
+  {
+    "id": "fw-atomic-design",
+    "name": "Atomic Design Methodology",
+    "type": "framework",
+    "description": "Design system architecture methodology that structures UI into five levels: atoms, molecules, organisms, templates, and pages. Ensures systematic, scalable component design.",
+    "applicable_stages": [5, 6],
+    "industries": ["all"],
+    "tags": ["design system", "architecture", "components", "scalability", "atomic"],
+    "team_ids": ["team-003"]
+  },
+  {
+    "id": "fw-dual-track-agile",
+    "name": "Dual-Track Agile",
+    "type": "framework",
+    "description": "Product delivery framework that runs discovery and delivery in parallel tracks. Design validates ideas while engineering builds proven solutions, ensuring continuous flow of validated work.",
+    "applicable_stages": [4, 5, 6, 7],
+    "industries": ["all"],
+    "tags": ["agile", "dual-track", "discovery", "delivery", "product management", "continuous"],
+    "team_ids": ["team-002"]
+  },
+  {
+    "id": "fw-design-maturity",
+    "name": "Design Maturity Model",
+    "type": "framework",
+    "description": "Assessment framework that benchmarks an organization's design capability across dimensions: process, talent, tools, culture, and impact. Produces a maturity score and improvement roadmap.",
+    "applicable_stages": [2, 7, 8],
+    "industries": ["all"],
+    "tags": ["maturity", "assessment", "governance", "capability", "design operations"],
+    "team_ids": ["team-001"]
+  },
+  {
+    "id": "tool-figma",
+    "name": "Figma",
+    "type": "tool",
+    "description": "Collaborative design platform for UI/UX design, prototyping, design systems, and real-time team collaboration. Primary design tool across all service areas.",
+    "applicable_stages": [2, 3, 4, 5, 6, 7],
+    "industries": ["all"],
+    "tags": ["design", "UI", "UX", "prototyping", "collaboration", "design system"],
+    "team_ids": []
+  },
+  {
+    "id": "tool-adobe",
+    "name": "Adobe Creative Suite",
+    "type": "tool",
+    "description": "Professional creative toolset for visual identity, illustration, motion design, image editing, and brand asset production (Illustrator, Photoshop, After Effects, etc.).",
+    "applicable_stages": [6, 7],
+    "industries": ["all"],
+    "tags": ["visual identity", "illustration", "motion design", "brand", "creative"],
+    "team_ids": []
+  },
+  {
+    "id": "tool-figma-rdp",
+    "name": "Figma (Prototyping)",
+    "type": "tool",
+    "description": "Used for rapid interactive prototyping, concept visualization, and stakeholder walkthroughs in the rapid prototyping workflow.",
+    "applicable_stages": [3, 4, 5, 6],
+    "industries": ["all"],
+    "tags": ["prototyping", "rapid", "visualization", "interactive", "concept"],
+    "team_ids": []
+  },
+  {
+    "id": "tool-factory-ai",
+    "name": "Factory.AI",
+    "type": "tool",
+    "description": "AI-powered development platform for accelerated code generation, rapid MVP building, and automated prototyping from design to working software.",
+    "applicable_stages": [3, 4, 6, 7],
+    "industries": ["all"],
+    "tags": ["AI", "code generation", "MVP", "automation", "rapid development"],
+    "team_ids": []
+  },
+  {
+    "id": "asset-nexus",
+    "name": "NEXUS Digital",
+    "type": "asset",
+    "description": "Outil de décision collective mobilisé en temps réel. NEXUS permet aux participants de soumettre, scorer et arbitrer leurs idées sur 4 dimensions pondérées adaptables : Pertinence, Créativité, Faisabilité, Éco-responsabilité. Résultat : des décisions collectives traçables, comparables et actionnables immédiatement.",
+    "applicable_stages": [3, 4, 5],
+    "industries": ["all"],
+    "tags": ["decision-making", "scoring", "prioritization", "collective", "real-time", "co-creation"],
+    "team_ids": ["team-006"]
+  },
+  {
+    "id": "asset-transfopoly",
+    "name": "Transfopoly",
+    "type": "asset",
+    "description": "Physical serious game designed to guide participants through strategic decision-making in a gamified setup. Helps teams explore transformation scenarios, trade-offs, and priorities in an engaging, hands-on format.",
+    "applicable_stages": [3, 4],
+    "industries": ["all"],
+    "tags": ["serious gaming", "strategy", "decision-making", "gamification", "transformation", "workshop"],
+    "team_ids": ["team-005"]
+  }
+]

@@ -1,0 +1,34 @@
+<div id="onboarding-overlay" class="onboarding-overlay" style="display: none;">
+    <div class="onboarding-modal">
+        <button class="onboarding-close" onclick="skipOnboarding()" title="Fermer">×</button>
+        
+        <!-- Fixed Header -->
+        <div class="onboarding-header">
+            <div class="onboarding-visual" id="onboarding-visual">
+                <div class="onboarding-icon">📋</div>
+            </div>
+            <h2 id="onboarding-title">Bienvenue sur Innovation Navigator</h2>
+        </div>
+        
+        <!-- Scrollable Content -->
+        <div class="onboarding-body">
+            <p id="onboarding-text">Chargement...</p>
+        </div>
+        
+        <!-- Fixed Footer -->
+        <div class="onboarding-footer">
+            <div class="onboarding-indicators" id="onboarding-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+            
+            <div class="onboarding-actions">
+                <button class="btn" onclick="skipOnboarding()">Passer</button>
+                <button class="btn btn-primary" id="onboarding-next" onclick="nextOnboardingStep()">Suivant →</button>
+            </div>
+        </div>
+    </div>
+</div>

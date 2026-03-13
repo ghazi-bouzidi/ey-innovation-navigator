@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}{{ "Nouveau Client" if is_new else "Modifier " + client.name }} - EY Innovation Navigator{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ "Nouveau Client" if is_new else "Modifier le Client : " + client.name }}</h1>
+    {% if not is_new %}
+    <a href="{{ url_for('client_profile', client_id=client.id) }}" class="btn">Annuler</a>
+    {% endif %}
+</div>
+
+<form method="POST" action="{{ url_for('new_client') if is_new else url_for('edit_client', client_id=client.id) }}">
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="name">Nom du Client</label>
+            <input type="text" id="name" name="name" value="{{ client.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="industry">Secteur</label>
+            <select id="industry" name="industry" required>
+                <option value="" {{ 'selected' if not client.industry }}>Sélectionner un secteur...</option>
+                <option value="Government & Public Services" {{ 'selected' if client.industry == 'Government & Public Services' }}>Gouvernement & Services Publics</option>
+                <option value="Financial Services" {{ 'selected' if client.industry == 'Financial Services' }}>Services Financiers</option>
+                <option value="Retail & Consumer Products" {{ 'selected' if client.industry == 'Retail & Consumer Products' }}>Distribution & Produits de Consommation</option>
+                <option value="Technology, Media & Telecommunications" {{ 'selected' if client.industry == 'Technology, Media & Telecommunications' }}>Technologie, Médias & Télécommunications</option>
+                <option value="Health & Life Sciences" {{ 'selected' if client.industry == 'Health & Life Sciences' }}>Santé & Sciences de la Vie</option>
+                <option value="Energy & Resources" {{ 'selected' if client.industry == 'Energy & Resources' }}>Énergie & Ressources</option>
+                <option value="Advanced Manufacturing & Mobility" {{ 'selected' if client.industry == 'Advanced Manufacturing & Mobility' }}>Industrie Avancée & Mobilité</option>
+                <option value="Real Estate, Hospitality & Construction" {{ 'selected' if client.industry == 'Real Estate, Hospitality & Construction' }}>Immobilier, Hôtellerie & Construction</option>
+                <option value="Private Equity" {{ 'selected' if client.industry == 'Private Equity' }}>Capital-Investissement</option>
+                <option value="Education" {{ 'selected' if client.industry == 'Education' }}>Éducation</option>
+                <option value="Nonprofit & Social Enterprise" {{ 'selected' if client.industry == 'Nonprofit & Social Enterprise' }}>Associations & Entreprises Sociales</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="size">Taille de l'entreprise</label>
+            <select id="size" name="size">
+                <option value="" {{ 'selected' if not client.size }}>Sélectionner...</option>
+                <option value="Startup" {{ 'selected' if client.size == 'Startup' }}>Startup (1-50)</option>
+                <option value="SMB" {{ 'selected' if client.size == 'SMB' }}>PME (51-500)</option>
+                <option value="Mid-Market" {{ 'selected' if client.size == 'Mid-Market' }}>ETI (501-5000)</option>
+                <option value="Enterprise" {{ 'selected' if client.size == 'Enterprise' }}>Grande Entreprise (5000+)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="region">Région</label>
+            <select id="region" name="region" required>
+                <option value="" {{ 'selected' if not client.region }}>Sélectionner une région...</option>
+                <option value="Tunisia" {{ 'selected' if client.region == 'Tunisia' }}>Tunisie</option>
+                <optgroup label="Moyen-Orient & Afrique du Nord">
+                    <option value="MENA - Gulf States" {{ 'selected' if client.region == 'MENA - Gulf States' }}>MENA - États du Golfe</option>
+                    <option value="MENA - Levant" {{ 'selected' if client.region == 'MENA - Levant' }}>MENA - Levant</option>
+                    <option value="MENA - North Africa" {{ 'selected' if client.region == 'MENA - North Africa' }}>MENA - Afrique du Nord</option>
+                </optgroup>
+                <optgroup label="Afrique">
+                    <option value="Africa - West" {{ 'selected' if client.region == 'Africa - West' }}>Afrique - Ouest</option>
+                    <option value="Africa - East" {{ 'selected' if client.region == 'Africa - East' }}>Afrique - Est</option>
+                    <option value="Africa - Southern" {{ 'selected' if client.region == 'Africa - Southern' }}>Afrique - Australe</option>
+                </optgroup>
+                <optgroup label="Europe">
+                    <option value="Europe - Western" {{ 'selected' if client.region == 'Europe - Western' }}>Europe - Occidentale</option>
+                    <option value="Europe - Central & Eastern" {{ 'selected' if client.region == 'Europe - Central & Eastern' }}>Europe - Centrale & Orientale</option>
+                    <option value="Europe - Nordics" {{ 'selected' if client.region == 'Europe - Nordics' }}>Europe - Nordiques</option>
+                    <option value="Europe - UK & Ireland" {{ 'selected' if client.region == 'Europe - UK & Ireland' }}>Europe - Royaume-Uni & Irlande</option>
+                </optgroup>
+                <optgroup label="Amériques">
+                    <option value="Americas - US" {{ 'selected' if client.region == 'Americas - US' }}>Amériques - États-Unis</option>
+                    <option value="Americas - Canada" {{ 'selected' if client.region == 'Americas - Canada' }}>Amériques - Canada</option>
+                    <option value="Americas - Latin America" {{ 'selected' if client.region == 'Americas - Latin America' }}>Amériques - Amérique Latine</option>
+                </optgroup>
+                <optgroup label="Asie-Pacifique">
+                    <option value="Asia-Pacific - Greater China" {{ 'selected' if client.region == 'Asia-Pacific - Greater China' }}>Asie-Pacifique - Grande Chine</option>
+                    <option value="Asia-Pacific - Japan" {{ 'selected' if client.region == 'Asia-Pacific - Japan' }}>Asie-Pacifique - Japon</option>
+                    <option value="Asia-Pacific - ASEAN" {{ 'selected' if client.region == 'Asia-Pacific - ASEAN' }}>Asie-Pacifique - ASEAN</option>
+                    <option value="Asia-Pacific - India" {{ 'selected' if client.region == 'Asia-Pacific - India' }}>Asie-Pacifique - Inde</option>
+                    <option value="Asia-Pacific - Oceania" {{ 'selected' if client.region == 'Asia-Pacific - Oceania' }}>Asie-Pacifique - Océanie</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="digital_maturity">Maturité Digitale (1-5)</label>
+            <input type="range" id="digital_maturity" name="digital_maturity" min="1" max="5" value="{{ client.digital_maturity }}" oninput="document.getElementById('dm-val').textContent=this.value">
+            <span id="dm-val">{{ client.digital_maturity }}</span> / 5
+        </div>
+        <div class="form-group full-width">
+            <label for="client_background">Informations Générales</label>
+            <textarea id="client_background" name="client_background" rows="5" placeholder="Contexte du client : modèle économique, priorités stratégiques, paysage concurrentiel, défis majeurs, structure organisationnelle, culture, stack technologique, capacités digitales, environnement réglementaire, transformations récentes...">{{ client.client_background }}</textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ "Créer le Client" if is_new else "Enregistrer" }}</button>
+</form>
+{% endblock %}

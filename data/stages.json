@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Kick-off & Cadrage",
+    "description": "Alignement sur le périmètre, les objectifs, la gouvernance et la mise en place de la mission.",
+    "activities": [
+      "Définir le périmètre et les objectifs de la mission",
+      "Aligner les parties prenantes sur la vision et les attentes",
+      "Établir la gouvernance et les modes de fonctionnement",
+      "Mettre en place les outils, canaux de communication et le calendrier"
+    ],
+    "innovation_focus": "Cadrer la mission autour de résultats portés par l'innovation dès le premier jour"
+  },
+  {
+    "id": 2,
+    "name": "Diagnostic & Discovery",
+    "description": "Évaluation de l'état actuel, entretiens avec les parties prenantes et cartographie des points de douleur.",
+    "activities": [
+      "Mener des entretiens avec les parties prenantes et les utilisateurs",
+      "Auditer les expériences, processus et systèmes existants",
+      "Cartographier les parcours actuels et les points de douleur",
+      "Benchmark par rapport au secteur et aux concurrents"
+    ],
+    "innovation_focus": "Déployer des outils et frameworks de découverte pour révéler des insights profonds"
+  },
+  {
+    "id": 3,
+    "name": "Co-création & Idéation",
+    "description": "Ateliers collaboratifs d'idéation et génération de concepts.",
+    "activities": [
+      "Animer des ateliers de co-création avec les équipes client",
+      "Générer et explorer des concepts de solutions",
+      "Esquisser et prototyper rapidement les idées",
+      "S'aligner sur les thématiques d'innovation et les axes d'opportunité"
+    ],
+    "innovation_focus": "Utiliser le serious gaming, les design sprints et les outils immersifs pour libérer la créativité"
+  },
+  {
+    "id": 4,
+    "name": "Priorisation Stratégique",
+    "description": "Évaluation, classement et sélection des idées selon des critères structurés.",
+    "activities": [
+      "Définir les critères de priorisation et le modèle de scoring",
+      "Évaluer les idées selon la faisabilité, l'impact et l'alignement stratégique",
+      "Construire les business cases pour les meilleurs concepts",
+      "Sélectionner les initiatives pour la feuille de route"
+    ],
+    "innovation_focus": "Exploiter les outils de décision collective (NEXUS) pour une priorisation traçable et data-driven"
+  },
+  {
+    "id": 5,
+    "name": "Restitution & Feuille de Route",
+    "description": "Présentation des résultats, construction de la feuille de route et définition des prochaines étapes.",
+    "activities": [
+      "Synthétiser les insights et les recommandations",
+      "Construire la feuille de route de mise en œuvre par phases",
+      "Présenter au leadership et aux parties prenantes clés",
+      "S'aligner sur les quick wins et les initiatives à long terme"
+    ],
+    "innovation_focus": "Traduire la vision innovation en un plan concret et actionnable"
+  },
+  {
+    "id": 6,
+    "name": "Livrables Client",
+    "description": "Production des livrables finaux : designs, prototypes, systèmes et assets.",
+    "activities": [
+      "Produire les designs et prototypes haute fidélité",
+      "Construire les design systems, assets de marque ou produits digitaux",
+      "Développer la documentation et les packages de spécifications",
+      "Conduire les revues qualité et la validation client"
+    ],
+    "innovation_focus": "Livrer des assets d'innovation tangibles qui créent de la valeur immédiate"
+  },
+  {
+    "id": 7,
+    "name": "Formation & Transfert",
+    "description": "Former les équipes client, transférer les connaissances et les outils.",
+    "activities": [
+      "Animer des ateliers de formation pour les équipes client",
+      "Transférer les design systems, outils et processus",
+      "Documenter les guidelines de gouvernance et de maintenance",
+      "Rendre le client autonome sur les assets livrés"
+    ],
+    "innovation_focus": "Assurer une adoption durable grâce au renforcement des compétences et au transfert de connaissances"
+  },
+  {
+    "id": 8,
+    "name": "Clôture & Continuité",
+    "description": "Clôturer la mission, documenter les résultats et préparer la suite.",
+    "activities": [
+      "Documenter les résultats de la mission et les métriques d'impact",
+      "Conduire la rétrospective et les enseignements tirés",
+      "Identifier les opportunités de suivi et les prochaines phases",
+      "Formaliser le plan de continuité et le modèle de support"
+    ],
+    "innovation_focus": "Démontrer le ROI de l'innovation et créer l'élan pour le prochain chapitre"
+  }
+]

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Catalogue Innovation - EY Innovation Navigator{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Catalogue Innovation EY Studio+</h1>
+    <a href="https://eystudioplustunisia.figma.site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visiter EY Studio+ &nearr;</a>
+</div>
+
+<div class="filter-bar">
+    <form method="GET" action="{{ url_for('catalog_browse') }}" class="inline-form">
+        <label>Type :
+            <select name="type" onchange="this.form.submit()">
+                <option value="">Tous les Types</option>
+                <option value="service" {{ 'selected' if type_filter == 'service' }}>Service</option>
+                <option value="framework" {{ 'selected' if type_filter == 'framework' }}>Framework</option>
+                <option value="tool" {{ 'selected' if type_filter == 'tool' }}>Outil</option>
+                <option value="asset" {{ 'selected' if type_filter == 'asset' }}>Asset</option>
+            </select>
+        </label>
+        <label>Étape :
+            <select name="stage" onchange="this.form.submit()">
+                <option value="">Toutes les Étapes</option>
+                {% for s in stages %}
+                <option value="{{ s.id }}" {{ 'selected' if s.id|string == stage_filter }}>{{ s.id }}. {{ s.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </form>
+</div>
+
+<p class="muted" style="margin-bottom: 1rem;">{{ catalog | length }} élément{{ "s" if catalog | length != 1 }} affiché{{ "s" if catalog | length != 1 }}</p>
+
+{% if catalog %}
+<div class="catalog-grid">
+    {% for item in catalog %}
+    <div class="catalog-card">
+        <div class="rec-header">
+            <span class="type-badge type-{{ item.type }}">{{ item.type }}</span>
+        </div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="tag-list" style="margin-top: 0.5rem;">
+            <strong>Étapes :</strong>
+            {% for sid in item.applicable_stages %}
+            <span class="tag">{{ sid }}</span>
+            {% endfor %}
+        </div>
+        {% if item._team %}
+        <div class="rec-team" style="margin-top: 0.5rem;">
+            {% for member in item._team %}
+            <div class="team-mini-card">
+                <span class="team-name">{{ member.name }}</span>
+                <span class="team-role">{{ member.role }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <p>Aucun élément ne correspond aux filtres sélectionnés.</p>
+</div>
+{% endif %}
+{% endblock %}

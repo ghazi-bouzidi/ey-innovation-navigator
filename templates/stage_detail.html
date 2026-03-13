@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Étape {{ stage.id }} : {{ stage.name }} - {{ project.name }} - EY Innovation Navigator{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>Étape {{ stage.id }} : {{ stage.name }}</h1>
+        <p class="subtitle">{{ client.name }} / {{ project.name }} | {{ stage.description }}</p>
+    </div>
+</div>
+
+<div class="stage-nav">
+    {% if stage.id > 1 %}
+    <a href="{{ url_for('stage_detail', client_id=client.id, project_id=project.id, stage_id=stage.id - 1) }}" class="btn btn-small">&larr; Étape Précédente</a>
+    {% endif %}
+    {% if stage.id < 8 %}
+    <a href="{{ url_for('stage_detail', client_id=client.id, project_id=project.id, stage_id=stage.id + 1) }}" class="btn btn-small">Étape Suivante &rarr;</a>
+    {% endif %}
+</div>
+
+<section class="section">
+    <h2>Activités Typiques</h2>
+    <ul class="activity-list">
+        {% for activity in stage.activities %}
+        <li>{{ activity }}</li>
+        {% endfor %}
+    </ul>
+    <p class="innovation-focus"><strong>Focus Innovation :</strong> {{ stage.innovation_focus }}</p>
+</section>
+
+<hr>
+
+<section class="section">
+    <h2>Recommandations Innovation</h2>
+    <p class="muted">Suggestions personnalisées basées sur le contexte de {{ project.name }} et le profil de {{ client.name }}.</p>
+
+    {% if recommendations %}
+    <div class="recommendations-grid">
+        {% for rec in recommendations %}
+        <div class="rec-card {{ 'rec-applied' if rec.status == 'applied' else ('rec-bookmarked' if rec.status == 'bookmarked' else ('rec-dismissed' if rec.status == 'dismissed' else '')) }}">
+            <div class="rec-header">
+                <span class="type-badge type-{{ rec.catalog_item.type }}">{{ rec.catalog_item.type }}</span>
+                {% if rec.status != 'suggested' %}
+                <span class="status-badge status-{{ rec.status }}">{{ rec.status }}</span>
+                {% endif %}
+            </div>
+            <h3>{{ rec.catalog_item.name }}</h3>
+            <p>{{ rec.catalog_item.description }}</p>
+            <div class="rec-reasoning">
+                <strong>Pourquoi cette recommandation :</strong> {{ rec.reasoning }}
+            </div>
+
+            {% if rec.team_members %}
+            <div class="rec-team">
+                <strong>Équipe Recommandée :</strong>
+                {% for member in rec.team_members %}
+                <div class="team-mini-card">
+                    <span class="team-name">{{ member.name }}</span>
+                    <span class="team-role">{{ member.role }}</span>
+                    <span class="team-availability avail-{{ member.availability }}">{{ member.availability }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="rec-actions">
+                <form method="POST" action="{{ url_for('update_suggestion', client_id=client.id, project_id=project.id, stage_id=stage.id, item_id=rec.catalog_item.id) }}" style="display:inline;">
+                    <input type="hidden" name="action" value="applied">
+                    <button type="submit" class="btn btn-small btn-apply" {{ 'disabled' if rec.status == 'applied' }}>Engager</button>
+                </form>
+                <form method="POST" action="{{ url_for('update_suggestion', client_id=client.id, project_id=project.id, stage_id=stage.id, item_id=rec.catalog_item.id) }}" style="display:inline;">
+                    <input type="hidden" name="action" value="bookmarked">
+                    <button type="submit" class="btn btn-small btn-bookmark" {{ 'disabled' if rec.status == 'bookmarked' }}>Favori</button>
+                </form>
+                <form method="POST" action="{{ url_for('update_suggestion', client_id=client.id, project_id=project.id, stage_id=stage.id, item_id=rec.catalog_item.id) }}" style="display:inline;">
+                    <input type="hidden" name="action" value="dismissed">
+                    <button type="submit" class="btn btn-small btn-dismiss" {{ 'disabled' if rec.status == 'dismissed' }}>Écarter</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <p>Aucune recommandation pour cette étape. Essayez d'ajouter plus de détails au projet (points de douleur, objectifs) pour améliorer le ciblage.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

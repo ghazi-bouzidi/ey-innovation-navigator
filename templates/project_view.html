@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% block title %}{{ project.name }} - {{ client.name }} - EY Innovation Navigator{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>{{ project.name }}</h1>
+        <p class="subtitle">{{ client.name }} | {{ client.industry or "N/A" }} | Maturité Digitale : {{ client.digital_maturity }}/5 | Étape Actuelle : {{ project.current_stage }}</p>
+    </div>
+    <div class="header-actions">
+        <a href="{{ url_for('edit_project', client_id=client.id, project_id=project.id) }}" class="btn">Modifier le Projet</a>
+    </div>
+</div>
+
+<!-- Contexte du Projet -->
+<div class="context-grid">
+    <div class="context-card">
+        <h3>Points de Douleur</h3>
+        {% if project.pain_points %}
+        <div class="tag-list">
+            {% for p in project.pain_points %}
+            <span class="tag">{{ p }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="muted">Aucun point de douleur défini.</p>
+        {% endif %}
+    </div>
+    <div class="context-card">
+        <h3>Objectifs</h3>
+        {% if project.goals %}
+        <div class="tag-list">
+            {% for g in project.goals %}
+            <span class="tag tag-goal">{{ g }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="muted">Aucun objectif défini.</p>
+        {% endif %}
+    </div>
+    <div class="context-card">
+        <h3>Description</h3>
+        <p>{{ project.description or "Aucune description." }}</p>
+    </div>
+</div>
+
+<!-- Pipeline du Parcours (cliquable) -->
+<section class="section" style="margin-top: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+        <div>
+            <h2>Parcours Innovation</h2>
+            <p class="muted">Cliquez sur une étape pour voir les services recommandés.</p>
+        </div>
+        {% if project.current_stage < 8 %}
+        <form method="POST" action="{{ url_for('advance_stage', client_id=client.id, project_id=project.id) }}" style="margin-top: 0.25rem;" onsubmit="return confirm('Passer à l\'étape suivante ?');">
+            <button type="submit" class="btn btn-primary">Avancer à l'étape suivante &rarr;</button>
+        </form>
+        {% endif %}
+    </div>
+
+    <div class="journey-pipeline">
+        {% for stage in stages %}
+        <div class="journey-stage journey-stage-clickable {{ 'stage-current' if stage.id == project.current_stage else ('stage-completed' if stage.id < project.current_stage else 'stage-upcoming') }}"
+             data-stage-id="{{ stage.id }}" onclick="toggleStagePanel({{ stage.id }})">
+            <div class="stage-number">{{ stage.id }}</div>
+            <div class="stage-name">{{ stage.name }}</div>
+            <div class="stage-desc">{{ stage.description[:60] }}{% if stage.description|length > 60 %}...{% endif %}</div>
+        </div>
+        {% if not loop.last %}
+        <div class="stage-connector {{ 'connector-done' if stage.id < project.current_stage else '' }}"></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Panneaux Déroulants par Étape — FULL CONTENT -->
+{% for stage in stages %}
+{% set recs = stage_recs[stage.id] %}
+
+<div class="stage-panel" id="stage-panel-{{ stage.id }}" style="display:none;">
+    <div class="stage-panel-header">
+        <h3>Étape {{ stage.id }} : {{ stage.name }}</h3>
+        <span class="muted">{{ stage.description }}</span>
+    </div>
+
+    <!-- Activités & Focus Innovation -->
+    <div class="panel-section">
+        <h4 class="panel-section-title">Activités Typiques</h4>
+        <ul class="activity-list">
+            {% for activity in stage.activities %}
+            <li>{{ activity }}</li>
+            {% endfor %}
+        </ul>
+        <p class="innovation-focus" style="margin-top: 0.75rem;"><strong>Focus Innovation :</strong> {{ stage.innovation_focus }}</p>
+    </div>
+
+    <!-- Recommandations Innovation -->
+    <div class="panel-section">
+        <h4 class="panel-section-title">Recommandations Innovation</h4>
+        <p class="muted" style="margin-bottom: 0.85rem;">Suggestions personnalisées basées sur le contexte de {{ project.name }} et le profil de {{ client.name }}.</p>
+
+        {% if recs %}
+        <div class="recommendations-grid">
+            {% for rec in recs %}
+            <div class="rec-card confidence-{{ rec.confidence_level }} {{ 'rec-applied' if rec.status == 'applied' else ('rec-bookmarked' if rec.status == 'bookmarked' else ('rec-dismissed' if rec.status == 'dismissed' else '')) }}">
+                <div class="rec-header">
+                    {% if rec.confidence_level == 'high' %}
+                    <span class="confidence-badge">🟢 Fortement recommandé</span>
+                    {% elif rec.confidence_level == 'medium' %}
+                    <span class="confidence-badge">🟡 Recommandé</span>
+                    {% endif %}
+                </div>
+                <div class="rec-header">
+                    <span class="type-badge type-{{ rec.catalog_item.type }}">{{ rec.catalog_item.type }}</span>
+                    {% if rec.status != 'suggested' %}
+                    <span class="status-badge status-{{ rec.status }}">{{ rec.status }}</span>
+                    {% endif %}
+                </div>
+                <h3>{{ rec.catalog_item.name }}</h3>
+                <p>{{ rec.catalog_item.description }}</p>
+                
+                {% if rec.matched_tags %}
+                <div class="match-indicators">
+                    {% for tag in rec.matched_tags %}
+                    <span class="match-indicator">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <div class="rec-reasoning">
+                    <strong>Pourquoi cette recommandation :</strong> {{ rec.reasoning }}
+                </div>
+
+                {% if rec.team_members %}
+                <div class="rec-team">
+                    <strong>Équipe Recommandée :</strong>
+                    {% for member in rec.team_members %}
+                    <div class="team-mini-card">
+                        <span class="team-name">{{ member.name }}</span>
+                        <span class="team-role">{{ member.role }}</span>
+                        <span class="team-availability avail-{{ member.availability }}">{{ member.availability }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="rec-actions">
+                    <form method="POST" action="{{ url_for('update_suggestion', client_id=client.id, project_id=project.id, stage_id=stage.id, item_id=rec.catalog_item.id) }}" style="display:inline;">
+                        <input type="hidden" name="action" value="applied">
+                        <button type="submit" class="btn btn-small btn-apply" {{ 'disabled' if rec.status == 'applied' }}>Engager</button>
+                    </form>
+                    <form method="POST" action="{{ url_for('update_suggestion', client_id=client.id, project_id=project.id, stage_id=stage.id, item_id=rec.catalog_item.id) }}" style="display:inline;">
+                        <input type="hidden" name="action" value="bookmarked">
+                        <button type="submit" class="btn btn-small btn-bookmark" {{ 'disabled' if rec.status == 'bookmarked' }}>Favori</button>
+                    </form>
+                    <form method="POST" action="{{ url_for('update_suggestion', client_id=client.id, project_id=project.id, stage_id=stage.id, item_id=rec.catalog_item.id) }}" style="display:inline;">
+                        <input type="hidden" name="action" value="dismissed">
+                        <button type="submit" class="btn btn-small btn-dismiss" {{ 'disabled' if rec.status == 'dismissed' }}>Écarter</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p>Aucune recommandation pour cette étape. Essayez d'ajouter plus de détails au projet (points de douleur, objectifs) pour améliorer le ciblage.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+
+<!-- Floating AI Chat Button -->
+<button id="ai-chat-btn" class="chat-float-btn" onclick="toggleChat()">
+    <span class="chat-icon">💬</span>
+    <span class="chat-badge">AI</span>
+</button>
+
+<!-- Chat Window -->
+<div id="ai-chat-window" class="chat-window" style="display: none;">
+    <div class="chat-header">
+        <h3>Assistant Innovation AI</h3>
+        <div class="chat-controls">
+            <button onclick="toggleChat()" class="btn-icon" title="Fermer">×</button>
+        </div>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+        <!-- Messages appear here -->
+    </div>
+    <div class="chat-typing" id="typing-indicator" style="display: none;">
+        <div class="typing-dots">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+        </div>
+        <span>L'IA réfléchit...</span>
+    </div>
+    <div class="chat-input-area">
+        <textarea id="chat-input" placeholder="Décrivez votre situation ou défi..." rows="3"></textarea>
+        <button onclick="sendChatMessage()" class="btn btn-primary btn-send">Envoyer</button>
+    </div>
+</div>
+
+<script>
+// Pass project context to JavaScript
+window.projectContext = {
+    name: "{{ project.name }}",
+    stage: {{ project.current_stage }},
+    painPoints: {{ project.pain_points | tojson }},
+    goals: {{ project.goals | tojson }},
+    industry: "{{ client.industry }}"
+};
+</script>
+{% endblock %}
