@@ -1,0 +1,76 @@
+{
+  "id": "client-002-bcm",
+  "name": "Banque Centrale de Mauritanie",
+  "industry": "Financial Services",
+  "size": "Enterprise",
+  "region": "MENA - North Africa",
+  "digital_maturity": 2,
+  "client_background": "Institution financière publique en charge de la politique monétaire et de la supervision bancaire en Mauritanie. Initiative de modernisation des services bancaires avec focus sur l'inclusion financière digitale et la conformité réglementaire internationale.",
+  "created_at": "2025-11-20T08:00:00",
+  "updated_at": "2026-03-12T10:00:00",
+  "projects": [
+    {
+      "id": "proj-bcm-001",
+      "name": "Portail Digital Inclusion Financière",
+      "description": "Plateforme digitale pour faciliter l'accès aux services bancaires dans les zones rurales. Intégration mobile money, éducation financière et onboarding simplifié sans agence.",
+      "current_stage": 3,
+      "pain_points": ["faible inclusion financière", "infrastructure limitée zones rurales", "literacy financière faible", "onboarding complexe"],
+      "goals": ["inclusion financière", "accessibilité mobile", "éducation financière", "simplification parcours"],
+      "stakeholders": [
+        {
+          "name": "Ahmed Ould Abdallahi",
+          "role": "Directeur Innovation",
+          "priorities": "Inclusion financière, conformité réglementaire"
+        },
+        {
+          "name": "Fatima Mint Sidi",
+          "role": "Responsable Digital",
+          "priorities": "Accessibilité, sécurité, mobile-first"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-01-15T10:00:00",
+          "text": "Diagnostic terrain dans 5 régions rurales. 200 interviews utilisateurs réalisées. Pain point majeur : accès internet intermittent."
+        },
+        {
+          "timestamp": "2026-02-20T14:00:00",
+          "text": "Workshop co-création avec agents de terrain. Concept 'offline-first' validé avec synchronisation en arrière-plan."
+        }
+      ],
+      "suggestions_state": {
+        "3_strategy-service-design": "applied",
+        "3_design-rapid-prototyping": "applied",
+        "3_immersive-facilitation-gaming": "bookmarked"
+      },
+      "created_at": "2025-12-01T09:00:00",
+      "updated_at": "2026-03-12T10:00:00"
+    },
+    {
+      "id": "proj-bcm-002",
+      "name": "Transformation Expérience Réglementaire",
+      "description": "Refonte du parcours de conformité pour les institutions financières supervisées. Dématérialisation complète, suivi temps réel et tableaux de bord prédictifs.",
+      "current_stage": 2,
+      "pain_points": ["processus manuels", "délais reporting longs", "manque de visibilité", "friction compliance"],
+      "goals": ["automatisation", "transparence", "reporting temps réel", "réduction délais"],
+      "stakeholders": [
+        {
+          "name": "Mohamed Salem Ould Merzoug",
+          "role": "Directeur Supervision Bancaire",
+          "priorities": "Conformité, traçabilité, efficacité"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-03-05T09:00:00",
+          "text": "Audit des processus actuels complété. 17 étapes manuelles identifiées pour automatisation prioritaire."
+        }
+      ],
+      "suggestions_state": {
+        "2_strategy-service-design": "applied"
+      },
+      "created_at": "2026-02-15T08:00:00",
+      "updated_at": "2026-03-12T09:30:00"
+    }
+  ]
+}

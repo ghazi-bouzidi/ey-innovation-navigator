@@ -1,0 +1,85 @@
+{
+  "id": "client-003-yaqeen",
+  "name": "Yaqeen Bank",
+  "industry": "Financial Services",
+  "size": "Mid-Market",
+  "region": "MENA - North Africa",
+  "digital_maturity": 2,
+  "client_background": "Banque commerciale libyenne en pleine reconstruction post-conflit. Ambition de devenir la première banque 100% digitale de Libye avec services bancaires modernes, cybersécurité renforcée et expérience client exceptionnelle pour attirer la jeune génération.",
+  "created_at": "2026-01-10T09:00:00",
+  "updated_at": "2026-03-11T16:00:00",
+  "projects": [
+    {
+      "id": "proj-yaq-001",
+      "name": "App Bancaire Mobile-First",
+      "description": "Création d'une application bancaire mobile nouvelle génération avec onboarding digital, paiements instantanés, gestion budgétaire assistée par IA et interface conversationnelle.",
+      "current_stage": 5,
+      "pain_points": ["onboarding lent", "expérience fragmentée", "manque fonctionnalités modernes", "faible adoption jeunes"],
+      "goals": ["mobile-first", "onboarding rapide", "AI chatbot", "paiements instantanés", "acquisition jeunes"],
+      "stakeholders": [
+        {
+          "name": "Omar Al-Mahdi",
+          "role": "Directeur Général Adjoint",
+          "priorities": "Différenciation marché, acquisition jeunes clients"
+        },
+        {
+          "name": "Nadia El-Ferjani",
+          "role": "Head of Digital Banking",
+          "priorities": "UX excellente, time-to-market rapide"
+        },
+        {
+          "name": "Khalid Abdelnour",
+          "role": "CISO",
+          "priorities": "Sécurité, conformité, fraude prevention"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-05T10:00:00",
+          "text": "Benchmark régional : N26, Revolut et CIB Egypt identifiés comme références UX. Gap analysis complété."
+        },
+        {
+          "timestamp": "2026-02-25T14:30:00",
+          "text": "Feuille de route MVP validée : 3 releases sur 6 mois. Quick win = onboarding 5min avec selfie KYC."
+        },
+        {
+          "timestamp": "2026-03-10T11:00:00",
+          "text": "Design system créé dans Figma avec 120 composants. Prêt pour handoff développement."
+        }
+      ],
+      "suggestions_state": {
+        "5_strategy-product-vision": "applied",
+        "5_design-systems": "applied",
+        "5_brand-identity-systems": "applied",
+        "5_delivery-agile": "applied",
+        "6_design-ux-ui": "bookmarked"
+      },
+      "created_at": "2026-01-15T09:00:00",
+      "updated_at": "2026-03-11T16:00:00"
+    },
+    {
+      "id": "proj-yaq-002",
+      "name": "Stratégie Marketing Digital",
+      "description": "Refonte complète de la stratégie marketing avec branding moderne, présence réseaux sociaux, campagnes digitales ciblées et programme ambassadeurs jeunes.",
+      "current_stage": 1,
+      "pain_points": ["brand perçu comme ancien", "faible présence digitale", "acquisition coûteuse", "faible notoriété jeunes"],
+      "goals": ["rebranding", "marketing digital", "social media", "acquisition organic"],
+      "stakeholders": [
+        {
+          "name": "Salma Ghariani",
+          "role": "Directrice Marketing",
+          "priorities": "Rajeunissement marque, acquisition clients digitaux"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-03-08T09:00:00",
+          "text": "Kick-off réalisé. Alignement sur positionnement 'La banque des entrepreneurs et innovateurs libyens'."
+        }
+      ],
+      "suggestions_state": {},
+      "created_at": "2026-03-01T10:00:00",
+      "updated_at": "2026-03-11T15:00:00"
+    }
+  ]
+}

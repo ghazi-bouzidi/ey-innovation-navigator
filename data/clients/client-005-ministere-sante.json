@@ -1,0 +1,55 @@
+{
+  "id": "client-005-ministere-sante",
+  "name": "Ministère de la Santé Publique (Tunisie)",
+  "industry": "Government & Public Services",
+  "size": "Enterprise",
+  "region": "Tunisia",
+  "digital_maturity": 2,
+  "client_background": "Institution publique en charge de la politique de santé nationale. Initiative de transformation digitale pour améliorer l'accès aux soins, moderniser les parcours patients et optimiser la gestion hospitalière. Focus sur télémédecine, dossier médical partagé et pilotage performance.",
+  "created_at": "2026-02-01T08:00:00",
+  "updated_at": "2026-03-12T17:00:00",
+  "projects": [
+    {
+      "id": "proj-msp-001",
+      "name": "Parcours Patient Digital",
+      "description": "Refonte du parcours patient de bout en bout : prise de rendez-vous en ligne, dossier médical partagé, suivi post-consultation et téléconsultation. Pilote dans 3 hôpitaux régionaux.",
+      "current_stage": 3,
+      "pain_points": ["temps d'attente longs", "dossiers papier", "coordination difficile", "pas de suivi post-consultation"],
+      "goals": ["réduire attente", "dématérialisation", "coordination soins", "satisfaction patient"],
+      "stakeholders": [
+        {
+          "name": "Dr. Hichem Bouzouita",
+          "role": "Directeur Innovation",
+          "priorities": "Amélioration accès soins, efficacité opérationnelle"
+        },
+        {
+          "name": "Sonia Karoui",
+          "role": "Chef de Projet Digital",
+          "priorities": "Adoption terrain, change management"
+        },
+        {
+          "name": "Dr. Leila Mahfoudh",
+          "role": "Médecin-Chef CHU",
+          "priorities": "Qualité soins, charge travail médecins"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-20T10:00:00",
+          "text": "Immersion terrain dans 3 hôpitaux : 50 observations parcours patients, 30 interviews personnels soignants."
+        },
+        {
+          "timestamp": "2026-03-01T14:00:00",
+          "text": "Atelier Transfopoly avec 20 participants (médecins, infirmiers, administratifs). Consensus sur quick win : SMS rappel RDV."
+        }
+      ],
+      "suggestions_state": {
+        "3_strategy-service-design": "applied",
+        "3_immersive-facilitation-gaming": "applied",
+        "3_design-rapid-prototyping": "bookmarked"
+      },
+      "created_at": "2026-02-05T09:00:00",
+      "updated_at": "2026-03-12T17:00:00"
+    }
+  ]
+}

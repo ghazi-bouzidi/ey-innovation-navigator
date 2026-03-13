@@ -1,0 +1,123 @@
+{
+  "id": "client-006-tunisair",
+  "name": "Tunisair Express",
+  "industry": "Advanced Manufacturing & Mobility",
+  "size": "Mid-Market",
+  "region": "Tunisia",
+  "digital_maturity": 3,
+  "client_background": "Compagnie aérienne régionale tunisienne, filiale de Tunisair. Plan de relance ambitieux centré sur l'expérience voyageur digitale, optimisation opérationnelle et différenciation low-cost premium. Flotte jeune, ambition de devenir référence expérience client Maghreb.",
+  "created_at": "2026-01-05T08:00:00",
+  "updated_at": "2026-03-13T10:30:00",
+  "projects": [
+    {
+      "id": "proj-tue-001",
+      "name": "App Voyageur Nouvelle Génération",
+      "description": "Application mobile complète : réservation intelligente, boarding pass digital, suivi bagages temps réel, services à bord, programme fidélité gamifié et assistant voyage IA.",
+      "current_stage": 5,
+      "pain_points": ["app actuelle obsolète", "pas de suivi bagages", "expérience fragmentée", "engagement faible"],
+      "goals": ["app moderne", "parcours fluide", "suivi temps réel", "fidélisation", "différenciation"],
+      "stakeholders": [
+        {
+          "name": "Faouzi Dridi",
+          "role": "Directeur Commercial",
+          "priorities": "Fidélisation, différenciation concurrentielle"
+        },
+        {
+          "name": "Rim Bouaziz",
+          "role": "Responsable Expérience Client",
+          "priorities": "NPS, satisfaction, services à valeur ajoutée"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-10T09:00:00",
+          "text": "Benchmark 15 apps compagnies : Air France, Lufthansa et Emirates identifiées comme best-in-class UX."
+        },
+        {
+          "timestamp": "2026-02-28T15:00:00",
+          "text": "Roadmap produit validée : Release 1 (réservation + boarding), Release 2 (bagages + services), Release 3 (fidélité + IA)."
+        },
+        {
+          "timestamp": "2026-03-10T11:00:00",
+          "text": "Design system aviation créé : 95 composants, guidelines accessibilité aéroport intégrées."
+        }
+      ],
+      "suggestions_state": {
+        "5_strategy-product-vision": "applied",
+        "5_design-systems": "applied",
+        "5_delivery-agile": "applied",
+        "6_design-ux-ui": "bookmarked",
+        "6_design-ai-mvp": "bookmarked"
+      },
+      "created_at": "2026-01-10T09:00:00",
+      "updated_at": "2026-03-13T10:30:00"
+    },
+    {
+      "id": "proj-tue-002",
+      "name": "Rebranding Tunisair Express",
+      "description": "Refonte complète de l'identité visuelle pour refléter le positionnement 'low-cost premium' et rajeunir la marque. Logo, charte graphique, livrée avions, supports digitaux.",
+      "current_stage": 6,
+      "pain_points": ["image vieillissante", "confusion avec Tunisair", "manque différenciation", "faible notoriété jeunes"],
+      "goals": ["identité moderne", "différenciation claire", "premium accessible", "attraction jeunes"],
+      "stakeholders": [
+        {
+          "name": "Nadia Hamdi",
+          "role": "Directrice Marketing",
+          "priorities": "Rajeunissement marque, cohérence omnicanale"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-15T10:00:00",
+          "text": "Workshops co-création marque avec employés et clients fidèles. 3 territoires de marque explorés."
+        },
+        {
+          "timestamp": "2026-03-05T14:00:00",
+          "text": "Direction créative validée : 'Le ciel méditerranéen à portée de tous'. Palette bleu/turquoise/corail."
+        },
+        {
+          "timestamp": "2026-03-12T16:00:00",
+          "text": "Livrables en production : logo, charte, mockups livrée, templates digital. Lancement prévu avril 2026."
+        }
+      ],
+      "suggestions_state": {
+        "6_brand-identity-systems": "applied",
+        "6_brand-expression-ds": "applied",
+        "6_immersive-spatial-3d": "applied"
+      },
+      "created_at": "2026-02-01T10:00:00",
+      "updated_at": "2026-03-13T10:00:00"
+    },
+    {
+      "id": "proj-tue-003",
+      "name": "Formation Équipage Expérience Client",
+      "description": "Programme de formation immersive pour cabin crew et personnel sol sur les nouveaux standards expérience client et usage des outils digitaux.",
+      "current_stage": 8,
+      "pain_points": ["formation théorique peu engageante", "adoption outils faible", "standards service hétérogènes"],
+      "goals": ["formation engageante", "standards homogènes", "adoption digitale"],
+      "stakeholders": [
+        {
+          "name": "Kamel Souissi",
+          "role": "Directeur Formation",
+          "priorities": "Efficacité formation, mesure impact"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-03-01T09:00:00",
+          "text": "Formation immersive déployée : 120 cabin crew formés en 3 sessions. Taux satisfaction 92%."
+        },
+        {
+          "timestamp": "2026-03-13T10:00:00",
+          "text": "Clôture mission : documentation transfert complète, kit formateur autonomie livré. Suivi impact prévu T2 2026."
+        }
+      ],
+      "suggestions_state": {
+        "7_immersive-training": "applied",
+        "8_delivery-measurement": "applied"
+      },
+      "created_at": "2026-02-15T10:00:00",
+      "updated_at": "2026-03-13T10:30:00"
+    }
+  ]
+}

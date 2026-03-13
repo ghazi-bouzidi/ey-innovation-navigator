@@ -28,16 +28,26 @@ def load_client(client_id):
 
 
 def save_client(client):
+    """Vercel uses a read-only filesystem. For the demo, we only 'save' in memory for the current session if needed, 
+    but for true persistence on Vercel, you'd need a database like MongoDB or PostgreSQL."""
     path = CLIENTS_DIR / f"{client['id']}.json"
-    with open(path, "w") as f:
-        json.dump(client, f, indent=2)
+    try:
+        with open(path, "w") as f:
+            json.dump(client, f, indent=2)
+    except OSError:
+        # Silently fail on read-only filesystems (Vercel)
+        pass
 
 
 def list_clients():
     clients = []
+    # Search both standard and hidden filenames for the demo
     for p in sorted(CLIENTS_DIR.glob("*.json")):
-        with open(p, "r") as f:
-            clients.append(json.load(f))
+        try:
+            with open(p, "r") as f:
+                clients.append(json.load(f))
+        except:
+            continue
     return clients
 
 

@@ -1,0 +1,109 @@
+{
+  "id": "client-001-rose-blanch",
+  "name": "Rose Blanche Group",
+  "industry": "Retail & Consumer Products",
+  "size": "Enterprise",
+  "region": "Tunisia",
+  "digital_maturity": 3,
+  "client_background": "Groupe industriel leader en Tunisie avec plus de 50 ans d'expertise dans la distribution et les produits de consommation. Pr\u00e9sent dans la grande distribution, le textile et l'agroalimentaire. Transformation digitale en cours avec focus sur l'exp\u00e9rience client omnicanale et la modernisation des syst\u00e8mes legacy.",
+  "created_at": "2026-01-15T09:00:00",
+  "updated_at": "2026-03-13T14:14:38.220300",
+  "projects": [
+    {
+      "id": "proj-rb-001",
+      "name": "Refonte Exp\u00e9rience E-commerce",
+      "description": "Transformation compl\u00e8te de la plateforme e-commerce pour am\u00e9liorer le taux de conversion et l'engagement client. Migration vers une architecture headless avec personnalisation bas\u00e9e sur l'IA.",
+      "current_stage": 5,
+      "pain_points": [
+        "taux de conversion faible",
+        "abandon panier \u00e9lev\u00e9",
+        "UX obsol\u00e8te",
+        "personnalisation limit\u00e9e"
+      ],
+      "goals": [
+        "augmenter conversion",
+        "UX moderne",
+        "personnalisation",
+        "mobile-first"
+      ],
+      "stakeholders": [
+        {
+          "name": "Karim Mansour",
+          "role": "Directeur Digital",
+          "priorities": "ROI rapide, am\u00e9lioration NPS"
+        },
+        {
+          "name": "Leila Ben Ahmed",
+          "role": "Responsable E-commerce",
+          "priorities": "R\u00e9duction abandon panier, personnalisation produits"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-20T10:00:00",
+          "text": "Atelier co-cr\u00e9ation r\u00e9ussi avec 15 participants. 45 id\u00e9es g\u00e9n\u00e9r\u00e9es, consensus sur 3 quick wins prioritaires."
+        },
+        {
+          "timestamp": "2026-03-05T15:30:00",
+          "text": "Benchmark concurrents compl\u00e9t\u00e9. Carrefour et Monoprix identifi\u00e9s comme r\u00e9f\u00e9rences UX r\u00e9gionales."
+        }
+      ],
+      "suggestions_state": {
+        "3_ux-design-architecture": "applied",
+        "3_design-rapid-prototyping": "applied",
+        "4_design-systems": "bookmarked",
+        "4_delivery-agile": "applied"
+      },
+      "created_at": "2026-01-20T10:00:00",
+      "updated_at": "2026-03-13T14:14:38.220284"
+    },
+    {
+      "id": "proj-rb-002",
+      "name": "Programme Fid\u00e9lit\u00e9 Nouvelle G\u00e9n\u00e9ration",
+      "description": "Conception d'un programme de fid\u00e9lit\u00e9 omnicanal int\u00e9grant gamification, cashback dynamique et recommandations personnalis\u00e9es bas\u00e9es sur l'IA.",
+      "current_stage": 6,
+      "pain_points": [
+        "engagement faible",
+        "fragmentation donn\u00e9es",
+        "pas de personnalisation",
+        "ROI limit\u00e9"
+      ],
+      "goals": [
+        "engagement client",
+        "data unification",
+        "gamification",
+        "augmenter lifetime value"
+      ],
+      "stakeholders": [
+        {
+          "name": "Samia Trabelsi",
+          "role": "Directrice Marketing",
+          "priorities": "Engagement, diff\u00e9renciation concurrentielle"
+        },
+        {
+          "name": "Mohamed Jlassi",
+          "role": "DSI",
+          "priorities": "Int\u00e9gration CRM, s\u00e9curit\u00e9 donn\u00e9es"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-10T09:00:00",
+          "text": "Value Proposition Canvas valid\u00e9 : 3 job-to-be-done principaux identifi\u00e9s pour les clients fid\u00e8les."
+        },
+        {
+          "timestamp": "2026-02-28T11:00:00",
+          "text": "Prototypes interactifs test\u00e9s avec 50 utilisateurs. Score SUS de 78/100, recommandations d'am\u00e9lioration int\u00e9gr\u00e9es."
+        }
+      ],
+      "suggestions_state": {
+        "6_design-ux-ui": "applied",
+        "6_immersive-facilitation-gaming": "applied",
+        "6_design-ai-mvp": "applied",
+        "6_brand-identity-systems": "bookmarked"
+      },
+      "created_at": "2026-02-01T09:00:00",
+      "updated_at": "2026-03-10T14:00:00"
+    }
+  ]
+}

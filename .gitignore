@@ -30,8 +30,15 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
+# Allow demo files but ignore any other client data
 data/clients/*.json
 !data/clients/.gitkeep
+!data/clients/client-001-rose-blanch.json
+!data/clients/client-002-bcm.json
+!data/clients/client-003-yaqeen.json
+!data/clients/client-004-wasl.json
+!data/clients/client-005-ministere-sante.json
+!data/clients/client-006-tunisair.json
 
 # Logs
 *.log

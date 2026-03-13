@@ -1,0 +1,97 @@
+{
+  "id": "client-004-wasl",
+  "name": "Wasl PropTech",
+  "industry": "Real Estate, Hospitality & Construction",
+  "size": "SMB",
+  "region": "MENA - Gulf States",
+  "digital_maturity": 4,
+  "client_background": "Startup PropTech basée à Dubai, spécialisée dans la digitalisation du parcours immobilier résidentiel MENA. Plateforme SaaS pour agents immobiliers avec visites virtuelles 3D, signature électronique et gestion locative automatisée. Levée Série A récente, expansion régionale en cours.",
+  "created_at": "2025-12-10T08:00:00",
+  "updated_at": "2026-03-13T09:00:00",
+  "projects": [
+    {
+      "id": "proj-wasl-001",
+      "name": "Visites Immersives 3D & AR",
+      "description": "Module de visites virtuelles immersives en 3D avec réalité augmentée pour visualiser meubles, travaux et personnalisation. Intégration Matterport et développement viewer propriétaire.",
+      "current_stage": 6,
+      "pain_points": ["coût visites physiques", "prospects hors région", "difficulté projection", "conversion faible"],
+      "goals": ["visites virtuelles", "AR visualisation", "réduction déplacements", "améliorer conversion"],
+      "stakeholders": [
+        {
+          "name": "Rami Al-Khatib",
+          "role": "Co-founder & CEO",
+          "priorities": "Différenciation produit, scalabilité régionale"
+        },
+        {
+          "name": "Yasmine Nasser",
+          "role": "Head of Product",
+          "priorities": "Time-to-market, adoption agents, UX fluide"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-01-20T10:00:00",
+          "text": "POC réalisé avec 10 agents immobiliers à Dubai. Feedback très positif : 80% prêts à adopter si prix <$50/mois."
+        },
+        {
+          "timestamp": "2026-02-15T14:00:00",
+          "text": "Intégration Matterport API complétée. Viewer web 3D développé avec Three.js, compatible mobile."
+        },
+        {
+          "timestamp": "2026-03-05T11:30:00",
+          "text": "Feature AR 'meuble ton appart' testée avec 25 utilisateurs. Engagement +300%, demandes info +45%."
+        }
+      ],
+      "suggestions_state": {
+        "6_immersive-spatial-3d": "applied",
+        "6_immersive-ar-vr": "applied",
+        "6_design-ux-ui": "applied",
+        "6_design-ai-mvp": "bookmarked",
+        "7_delivery-design-dev-ops": "applied"
+      },
+      "created_at": "2025-12-15T09:00:00",
+      "updated_at": "2026-03-13T09:00:00"
+    },
+    {
+      "id": "proj-wasl-002",
+      "name": "Design System Wasl Platform",
+      "description": "Création d'un design system complet pour accélérer le développement de nouvelles features et garantir cohérence UX sur web, mobile et outils agents.",
+      "current_stage": 7,
+      "pain_points": ["incohérences UI", "développement lent", "dette design", "maintenance difficile"],
+      "goals": ["design system", "cohérence", "vélocité dev", "scalabilité"],
+      "stakeholders": [
+        {
+          "name": "Layla Mansouri",
+          "role": "Lead Designer",
+          "priorities": "Cohérence, productivité design"
+        },
+        {
+          "name": "Karim Jaber",
+          "role": "CTO",
+          "priorities": "Vélocité développement, code quality"
+        }
+      ],
+      "notes": [
+        {
+          "timestamp": "2026-02-10T09:00:00",
+          "text": "Audit design complété : 45 composants identifiés, 12 patterns de navigation, 3 thèmes couleurs utilisés."
+        },
+        {
+          "timestamp": "2026-02-28T15:00:00",
+          "text": "Design system Figma publié : 85 composants, tokens définis, documentation interactive intégrée."
+        },
+        {
+          "timestamp": "2026-03-12T10:00:00",
+          "text": "Formation équipe dev : 8 développeurs formés sur Storybook et usage composants. Adoption à 70%."
+        }
+      ],
+      "suggestions_state": {
+        "7_design-systems": "applied",
+        "7_delivery-design-dev-ops": "applied",
+        "7_immersive-training": "applied"
+      },
+      "created_at": "2026-01-25T10:00:00",
+      "updated_at": "2026-03-13T08:30:00"
+    }
+  ]
+}
