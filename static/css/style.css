@@ -1674,55 +1674,77 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
     z-index: 10;
 }
 
-.client-card-image {
-    height: 140px;
-    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+.client-card-content {
+    padding: 1.25rem;
+}
+
+.client-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+}
+
+.client-card-logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f3f4f6;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
-.client-card-image img {
+.client-card-logo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.client-card-placeholder {
-    width: 80px;
-    height: 80px;
+.client-logo-placeholder {
+    width: 100%;
+    height: 100%;
     background: #1a1a2e;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.75rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #fff;
+    border-radius: 10px;
 }
 
-.client-card-content {
-    padding: 1.25rem;
+.client-card-info {
+    flex: 1;
+    min-width: 0;
 }
 
-.client-card-content h3 {
-    font-size: 1.1rem;
+.client-card-info h3 {
+    font-size: 1rem;
     font-weight: 600;
     color: #1a1a2e;
-    margin: 0 0 0.35rem 0;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.3;
 }
 
 .client-card-industry {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #6b7280;
-    margin: 0 0 1rem 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .client-card-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f3;
 }
 
 /* New Client Card (Placeholder) */

@@ -46,18 +46,20 @@
                 </button>
             </form>
         </div>
-        <div class="client-card-image">
-            {% if client.image %}
-            <img src="{{ url_for('static', filename='uploads/' + client.image) }}" alt="{{ client.name }}">
-            {% else %}
-            <div class="client-card-placeholder">
-                <span>{{ client.name[:2].upper() if client.name else '??' }}</span>
-            </div>
-            {% endif %}
-        </div>
         <div class="client-card-content">
-            <h3>{{ client.name or "Sans titre" }}</h3>
-            <p class="client-card-industry">{{ client.industry or "Aucun secteur" }}</p>
+            <div class="client-card-header">
+                <div class="client-card-logo">
+                    {% if client.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + client.image) }}" alt="{{ client.name }}">
+                    {% else %}
+                    <span class="client-logo-placeholder">{{ client.name[:2].upper() if client.name else '??' }}</span>
+                    {% endif %}
+                </div>
+                <div class="client-card-info">
+                    <h3>{{ client.name or "Sans titre" }}</h3>
+                    <p class="client-card-industry">{{ client.industry or "Aucun secteur" }}</p>
+                </div>
+            </div>
             <div class="client-card-meta">
                 <span class="stage-badge">{{ client.projects | length }} projet{{ "s" if client.projects | length != 1 }}</span>
                 <span class="maturity-indicator">
