@@ -1524,20 +1524,22 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 /* Stage Tabs */
 .stage-tabs {
     display: flex;
-    gap: 0.25rem;
-    flex-wrap: wrap;
+    gap: 0.2rem;
+    flex-wrap: nowrap;
     background: #f3f4f6;
-    padding: 0.35rem;
-    border-radius: 10px;
+    padding: 0.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .stage-tab {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: #6b7280;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     transition: all 0.15s ease;
     white-space: nowrap;
 }

@@ -14,8 +14,8 @@
             Toutes
         </a>
         {% for s in stages %}
-        <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}" title="{{ s.name }}">
-            Étape {{ s.id }}
+        <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}" title="Étape {{ s.id }}: {{ s.name }}">
+            {{ s.name }}
         </a>
         {% endfor %}
     </div>
