@@ -7,29 +7,37 @@
     <a href="https://eystudioplustunisia.figma.site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visiter EY Studio+ &nearr;</a>
 </div>
 
-<div class="filter-bar">
-    <form method="GET" action="{{ url_for('catalog_browse') }}" class="inline-form">
-        <label>Type :
-            <select name="type" onchange="this.form.submit()">
+<!-- Stage Tabs (Left Aligned) -->
+<div class="catalog-filters-container">
+    <div class="stage-tabs">
+        <a href="{{ url_for('catalog_browse', type=type_filter) }}" class="stage-tab {{ 'active' if not stage_filter else '' }}">
+            Toutes
+        </a>
+        {% for s in stages %}
+        <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}" title="{{ s.name }}">
+            Étape {{ s.id }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Type Filter (Right Aligned) -->
+    <div class="type-filter">
+        <form method="GET" action="{{ url_for('catalog_browse') }}" class="inline-form">
+            {% if stage_filter %}
+            <input type="hidden" name="stage" value="{{ stage_filter }}">
+            {% endif %}
+            <select name="type" onchange="this.form.submit()" class="type-select">
                 <option value="">Tous les Types</option>
-                <option value="service" {{ 'selected' if type_filter == 'service' }}>Service</option>
-                <option value="framework" {{ 'selected' if type_filter == 'framework' }}>Framework</option>
-                <option value="tool" {{ 'selected' if type_filter == 'tool' }}>Outil</option>
-                <option value="asset" {{ 'selected' if type_filter == 'asset' }}>Asset</option>
+                <option value="service" {{ 'selected' if type_filter == 'service' }}>Services</option>
+                <option value="framework" {{ 'selected' if type_filter == 'framework' }}>Frameworks</option>
+                <option value="tool" {{ 'selected' if type_filter == 'tool' }}>Outils</option>
+                <option value="asset" {{ 'selected' if type_filter == 'asset' }}>Assets</option>
             </select>
-        </label>
-        <label>Étape :
-            <select name="stage" onchange="this.form.submit()">
-                <option value="">Toutes les Étapes</option>
-                {% for s in stages %}
-                <option value="{{ s.id }}" {{ 'selected' if s.id|string == stage_filter }}>{{ s.id }}. {{ s.name }}</option>
-                {% endfor %}
-            </select>
-        </label>
-    </form>
+        </form>
+    </div>
 </div>
 
-<p class="muted" style="margin-bottom: 1rem;">{{ catalog | length }} élément{{ "s" if catalog | length != 1 }} affiché{{ "s" if catalog | length != 1 }}</p>
+<p class="muted" style="margin-bottom: 1.5rem; margin-top: 1rem;">{{ catalog | length }} élément{{ "s" if catalog | length != 1 }} affiché{{ "s" if catalog | length != 1 }}</p>
 
 {% if catalog %}
 <div class="catalog-grid">

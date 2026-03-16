@@ -1508,3 +1508,98 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
         bottom: 1rem;
     }
 }
+
+/* ==========================================================================
+   Catalog Page - Stage Tabs & Filters
+   ========================================================================== */
+.catalog-filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Stage Tabs */
+.stage-tabs {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    background: #f3f4f6;
+    padding: 0.35rem;
+    border-radius: 10px;
+}
+
+.stage-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.stage-tab:hover {
+    background: #e5e7eb;
+    color: #1a1a2e;
+    text-decoration: none;
+}
+
+.stage-tab.active {
+    background: #1a1a2e;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Type Filter */
+.type-filter {
+    flex-shrink: 0;
+}
+
+.type-select {
+    padding: 0.55rem 2rem 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+    appearance: none;
+    cursor: pointer;
+    color: #374151;
+    transition: all 0.15s ease;
+}
+
+.type-select:hover {
+    border-color: #9ca3af;
+}
+
+.type-select:focus {
+    outline: none;
+    border-color: #1a1a2e;
+    box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
+}
+
+/* Catalog Tabs Responsive */
+@media (max-width: 768px) {
+    .catalog-filters-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stage-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .type-filter {
+        width: 100%;
+    }
+
+    .type-select {
+        width: 100%;
+    }
+}
