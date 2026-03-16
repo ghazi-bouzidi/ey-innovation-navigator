@@ -1742,9 +1742,23 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 .client-card-meta {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding-top: 1rem;
     border-top: 1px solid #f0f0f3;
+}
+
+.maturity-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.maturity-label {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 /* New Client Card (Placeholder) */

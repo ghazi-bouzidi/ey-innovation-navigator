@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Missions Client</h1>
+    <h1>Mes Clients</h1>
     <div class="header-actions">
         {% if clients %}
         <div class="view-toggle">
@@ -62,11 +62,14 @@
             </div>
             <div class="client-card-meta">
                 <span class="stage-badge">{{ client.projects | length }} projet{{ "s" if client.projects | length != 1 }}</span>
-                <span class="maturity-indicator">
-                    {% for i in range(5) %}
-                    <span class="maturity-dot {{ 'filled' if i < client.digital_maturity else '' }}"></span>
-                    {% endfor %}
-                </span>
+                <div class="maturity-block">
+                    <span class="maturity-label">Maturité digitale</span>
+                    <span class="maturity-indicator">
+                        {% for i in range(5) %}
+                        <span class="maturity-dot {{ 'filled' if i < client.digital_maturity else '' }}"></span>
+                        {% endfor %}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
