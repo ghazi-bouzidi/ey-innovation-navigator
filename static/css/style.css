@@ -1603,3 +1603,244 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
         width: 100%;
     }
 }
+
+/* ==========================================================================
+   Dashboard - View Toggle & Client Cards
+   ========================================================================== */
+
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    gap: 0.25rem;
+    background: #f3f4f6;
+    padding: 0.25rem;
+    border-radius: 8px;
+}
+
+.view-toggle-btn {
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-toggle-btn:hover {
+    background: #e5e7eb;
+    color: #1a1a2e;
+}
+
+.view-toggle-btn.active {
+    background: #fff;
+    color: #1a1a2e;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Clients Grid (Card View) */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+/* Client Card */
+.client-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+.client-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.client-card.clickable-card {
+    cursor: pointer;
+}
+
+.client-card .card-actions-overlay {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
+}
+
+.client-card-image {
+    height: 140px;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.client-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.client-card-placeholder {
+    width: 80px;
+    height: 80px;
+    background: #1a1a2e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.client-card-content {
+    padding: 1.25rem;
+}
+
+.client-card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0 0 0.35rem 0;
+}
+
+.client-card-industry {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0 0 1rem 0;
+}
+
+.client-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* New Client Card (Placeholder) */
+.client-card.new-client-card {
+    background: #fafafa;
+    border: 2px dashed #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    text-decoration: none;
+}
+
+.client-card.new-client-card:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.new-client-content {
+    text-align: center;
+    color: #6b7280;
+}
+
+.new-client-content .new-client-icon {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #9ca3af;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.new-client-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin: 0.5rem 0 0.25rem 0;
+}
+
+.new-client-content p {
+    font-size: 0.82rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.client-card.new-client-card:hover .new-client-icon {
+    color: #1a1a2e;
+}
+
+.client-card.new-client-card:hover h3 {
+    color: #1a1a2e;
+}
+
+/* List View Enhancements */
+.client-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.client-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.client-avatar-placeholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #1a1a2e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Image Upload */
+.image-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.current-image {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.current-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+}
+
+.current-image-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.form-hint {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .view-toggle {
+        order: -1;
+    }
+}

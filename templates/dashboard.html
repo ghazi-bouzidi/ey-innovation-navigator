@@ -4,61 +4,145 @@
 {% block content %}
 <div class="page-header">
     <h1>Missions Client</h1>
-    <a href="{{ url_for('new_client') }}" class="btn btn-primary">+ Nouveau Client</a>
+    <div class="header-actions">
+        {% if clients %}
+        <div class="view-toggle">
+            <button class="view-toggle-btn active" data-view="cards" title="Vue cartes">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                </svg>
+            </button>
+            <button class="view-toggle-btn" data-view="list" title="Vue liste">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        {% endif %}
+        <a href="{{ url_for('new_client') }}" class="btn btn-primary">+ Nouveau Client</a>
+    </div>
 </div>
 
 {% if clients %}
-<table class="data-table">
-    <thead>
-        <tr>
-            <th>Nom du Client</th>
-            <th>Secteur</th>
-            <th>Région</th>
-            <th>Projets</th>
-            <th>Maturité Digitale</th>
-            <th>Dernière MAJ</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for client in clients %}
-        <tr>
-            <td><a href="{{ url_for('client_profile', client_id=client.id) }}">{{ client.name or "Sans titre" }}</a></td>
-            <td>{{ client.industry or "-" }}</td>
-            <td>{{ client.region or "-" }}</td>
-            <td>
+<!-- Cards View (Default) -->
+<div id="clients-cards" class="clients-grid">
+    {% for client in clients %}
+    <div class="client-card clickable-card" onclick="window.location.href='{{ url_for('client_profile', client_id=client.id) }}'">
+        <div class="card-actions-overlay">
+            <form method="POST" action="{{ url_for('delete_client', client_id=client.id) }}" style="display:inline;" onsubmit="event.stopPropagation(); return confirm('Supprimer ce client et tous ses projets ?');" onclick="event.stopPropagation();">
+                <button type="submit" class="icon-btn icon-btn-danger" title="Supprimer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <div class="client-card-image">
+            {% if client.image %}
+            <img src="{{ url_for('static', filename='uploads/' + client.image) }}" alt="{{ client.name }}">
+            {% else %}
+            <div class="client-card-placeholder">
+                <span>{{ client.name[:2].upper() if client.name else '??' }}</span>
+            </div>
+            {% endif %}
+        </div>
+        <div class="client-card-content">
+            <h3>{{ client.name or "Sans titre" }}</h3>
+            <p class="client-card-industry">{{ client.industry or "Aucun secteur" }}</p>
+            <div class="client-card-meta">
                 <span class="stage-badge">{{ client.projects | length }} projet{{ "s" if client.projects | length != 1 }}</span>
-            </td>
-            <td>
                 <span class="maturity-indicator">
                     {% for i in range(5) %}
-                        <span class="maturity-dot {{ 'filled' if i < client.digital_maturity else '' }}"></span>
+                    <span class="maturity-dot {{ 'filled' if i < client.digital_maturity else '' }}"></span>
                     {% endfor %}
                 </span>
-            </td>
-            <td>{{ client.updated_at[:10] if client.updated_at else "-" }}</td>
-            <td>
-                <div class="action-icons">
-                    <a href="{{ url_for('client_profile', client_id=client.id) }}" class="icon-btn" title="Voir le client">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </a>
-                    <form method="POST" action="{{ url_for('delete_client', client_id=client.id) }}" style="display:inline;" onsubmit="return confirm('Supprimer ce client et tous ses projets ?');">
-                        <button type="submit" class="icon-btn icon-btn-danger" title="Supprimer">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <!-- New Client Card -->
+    <a href="{{ url_for('new_client') }}" class="client-card new-client-card">
+        <div class="new-client-content">
+            <div class="new-client-icon">+</div>
+            <h3>Nouveau Client</h3>
+            <p>Ajouter un nouveau client</p>
+        </div>
+    </a>
+</div>
+
+<!-- List View (Hidden by default) -->
+<div id="clients-list" class="clients-list-view" style="display: none;">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Nom du Client</th>
+                <th>Secteur</th>
+                <th>Région</th>
+                <th>Projets</th>
+                <th>Maturité Digitale</th>
+                <th>Dernière MAJ</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>
+                    <div class="client-name-cell">
+                        {% if client.image %}
+                        <img src="{{ url_for('static', filename='uploads/' + client.image) }}" alt="" class="client-avatar">
+                        {% else %}
+                        <div class="client-avatar-placeholder">{{ client.name[:2].upper() if client.name else '??' }}</div>
+                        {% endif %}
+                        <a href="{{ url_for('client_profile', client_id=client.id) }}">{{ client.name or "Sans titre" }}</a>
+                    </div>
+                </td>
+                <td>{{ client.industry or "-" }}</td>
+                <td>{{ client.region or "-" }}</td>
+                <td>
+                    <span class="stage-badge">{{ client.projects | length }} projet{{ "s" if client.projects | length != 1 }}</span>
+                </td>
+                <td>
+                    <span class="maturity-indicator">
+                        {% for i in range(5) %}
+                        <span class="maturity-dot {{ 'filled' if i < client.digital_maturity else '' }}"></span>
+                        {% endfor %}
+                    </span>
+                </td>
+                <td>{{ client.updated_at[:10] if client.updated_at else "-" }}</td>
+                <td>
+                    <div class="action-icons">
+                        <a href="{{ url_for('client_profile', client_id=client.id) }}" class="icon-btn" title="Voir le client">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="3 6 5 6 21 6"></polyline>
-                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                        </button>
-                    </form>
-                </div>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+                        </a>
+                        <form method="POST" action="{{ url_for('delete_client', client_id=client.id) }}" style="display:inline;" onsubmit="return confirm('Supprimer ce client et tous ses projets ?');">
+                            <button type="submit" class="icon-btn icon-btn-danger" title="Supprimer">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% else %}
 <div class="empty-state">
     <p>Aucune mission client pour le moment. Créez votre première pour commencer.</p>
@@ -70,4 +154,37 @@
     </div>
 </div>
 {% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtns = document.querySelectorAll('.view-toggle-btn');
+    const cardsView = document.getElementById('clients-cards');
+    const listView = document.getElementById('clients-list');
+    
+    // Load saved preference
+    const savedView = localStorage.getItem('clientsViewPreference') || 'cards';
+    setView(savedView);
+    
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const view = this.dataset.view;
+            setView(view);
+            localStorage.setItem('clientsViewPreference', view);
+        });
+    });
+    
+    function setView(view) {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        document.querySelector(`[data-view="${view}"]`)?.classList.add('active');
+        
+        if (view === 'cards') {
+            if (cardsView) cardsView.style.display = 'grid';
+            if (listView) listView.style.display = 'none';
+        } else {
+            if (cardsView) cardsView.style.display = 'none';
+            if (listView) listView.style.display = 'block';
+        }
+    }
+});
+</script>
 {% endblock %}

@@ -1,7 +1,9 @@
 import json
 import uuid
+import os
 from datetime import datetime
 from pathlib import Path
+from werkzeug.utils import secure_filename
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
@@ -12,6 +14,24 @@ app = Flask(__name__)
 DATA_DIR = Path(__file__).resolve().parent / "data"
 CLIENTS_DIR = DATA_DIR / "clients"
 CLIENTS_DIR.mkdir(parents=True, exist_ok=True)
+
+UPLOAD_FOLDER = Path(__file__).resolve().parent / "static" / "uploads"
+UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'svg', 'webp'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def save_uploaded_image(file):
+    if file and file.filename and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        unique_filename = f"{uuid.uuid4().hex[:8]}_{filename}"
+        try:
+            file.save(UPLOAD_FOLDER / unique_filename)
+            return unique_filename
+        except OSError:
+            return None
+    return None
 
 
 def load_json(filename):
@@ -67,6 +87,7 @@ def new_client_template():
         "region": "",
         "digital_maturity": 1,
         "client_background": "",
+        "image": "",
         "projects": [],
         "created_at": datetime.now().isoformat(),
         "updated_at": datetime.now().isoformat()
@@ -142,6 +163,14 @@ def new_client():
         client["region"] = request.form.get("region", "").strip()
         client["digital_maturity"] = int(request.form.get("digital_maturity", 1))
         client["client_background"] = request.form.get("client_background", "").strip()
+        
+        # Handle image upload
+        if 'image' in request.files:
+            image_file = request.files['image']
+            saved_filename = save_uploaded_image(image_file)
+            if saved_filename:
+                client["image"] = saved_filename
+        
         save_client(client)
         return redirect(url_for("client_profile", client_id=client["id"]))
 
@@ -190,6 +219,14 @@ def edit_client(client_id):
         client["region"] = request.form.get("region", "").strip()
         client["digital_maturity"] = int(request.form.get("digital_maturity", 1))
         client["client_background"] = request.form.get("client_background", "").strip()
+        
+        # Handle image upload
+        if 'image' in request.files:
+            image_file = request.files['image']
+            saved_filename = save_uploaded_image(image_file)
+            if saved_filename:
+                client["image"] = saved_filename
+        
         client["updated_at"] = datetime.now().isoformat()
         save_client(client)
         return redirect(url_for("client_profile", client_id=client_id))
