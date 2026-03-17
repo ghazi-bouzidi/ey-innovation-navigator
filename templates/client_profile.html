@@ -2,6 +2,10 @@
 {% block title %}{{ client.name }} - EY Innovation Navigator{% endblock %}
 
 {% block content %}
+{% set stages_map = {} %}
+{% for s in stages %}
+{% set _ = stages_map.update({s.id: s.name}) %}
+{% endfor %}
 <div class="page-header">
     <div>
         <h1>{{ client.name }}</h1>
@@ -44,7 +48,7 @@
             <div class="project-card-header">
                 <div class="project-title-row">
                     <h3>{{ project.name or "Projet sans titre" }}</h3>
-                    <span class="stage-badge">Étape {{ project.current_stage }}</span>
+                    <span class="stage-badge">{{ stages_map.get(project.current_stage, 'Étape ' ~ project.current_stage) }}</span>
                 </div>
             </div>
             {% if project.description %}
