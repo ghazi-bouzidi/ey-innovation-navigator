@@ -1552,7 +1552,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 }
 
 .stage-tab.active {
-    background: #ffe600;
+    background: #fff9c4;
     color: #1a1a2e;
     font-weight: 600;
 }
