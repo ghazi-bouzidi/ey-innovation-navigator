@@ -7,20 +7,22 @@
     <a href="https://eystudioplustunisia.figma.site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visiter EY Studio+ &nearr;</a>
 </div>
 
-<!-- Stage Tabs (Left Aligned) -->
-<div class="catalog-filters-container">
-    <div class="stage-tabs">
-        <a href="{{ url_for('catalog_browse', type=type_filter) }}" class="stage-tab {{ 'active' if not stage_filter else '' }}">
-            Toutes
-        </a>
-        {% for s in stages %}
-        <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}" title="Étape {{ s.id }}: {{ s.name }}">
-            {{ s.name }}
-        </a>
-        {% endfor %}
-    </div>
+<!-- Stage Tabs -->
+<div class="stage-tabs">
+    <a href="{{ url_for('catalog_browse', type=type_filter) }}" class="stage-tab {{ 'active' if not stage_filter else '' }}">
+        Toutes
+    </a>
+    {% for s in stages %}
+    <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}" title="Étape {{ s.id }}: {{ s.name }}">
+        {{ s.name }}
+    </a>
+    {% endfor %}
+</div>
 
-    <!-- Type Filter (Right Aligned) -->
+<!-- Results count and Type Filter row -->
+<div class="catalog-subheader">
+    <p class="muted">{{ catalog | length }} élément{{ "s" if catalog | length != 1 }} affiché{{ "s" if catalog | length != 1 }}</p>
+    
     <div class="type-filter">
         <form method="GET" action="{{ url_for('catalog_browse') }}" class="inline-form">
             {% if stage_filter %}
@@ -36,8 +38,6 @@
         </form>
     </div>
 </div>
-
-<p class="muted" style="margin-bottom: 1.5rem; margin-top: 1rem;">{{ catalog | length }} élément{{ "s" if catalog | length != 1 }} affiché{{ "s" if catalog | length != 1 }}</p>
 
 {% if catalog %}
 <div class="catalog-grid">

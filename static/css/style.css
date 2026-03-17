@@ -1512,13 +1512,16 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 /* ==========================================================================
    Catalog Page - Stage Tabs & Filters
    ========================================================================== */
-.catalog-filters-container {
+/* Catalog Subheader (count + type filter) */
+.catalog-subheader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.catalog-subheader .muted {
+    margin: 0;
 }
 
 /* Stage Tabs */
