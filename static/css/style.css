@@ -907,6 +907,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 .status-applied { background: #d1fae5; color: #065f46; }
 .status-bookmarked { background: #fef3c7; color: #92400e; }
 .status-dismissed { background: #f3f4f6; color: #6b7280; }
+.status-prospect { background: #fce7f3; color: #9d174d; border: 1px solid #fbcfe8; }
 
 .rec-reasoning {
     margin-top: 0.75rem;
@@ -1731,6 +1732,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
     color: #1a1a2e;
     margin: 0 0 0.25rem 0;
     line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .client-card-industry {

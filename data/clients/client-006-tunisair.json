@@ -15,8 +15,19 @@
       "name": "App Voyageur Nouvelle Génération",
       "description": "Application mobile complète : réservation intelligente, boarding pass digital, suivi bagages temps réel, services à bord, programme fidélité gamifié et assistant voyage IA.",
       "current_stage": 5,
-      "pain_points": ["app actuelle obsolète", "pas de suivi bagages", "expérience fragmentée", "engagement faible"],
-      "goals": ["app moderne", "parcours fluide", "suivi temps réel", "fidélisation", "différenciation"],
+      "pain_points": [
+        "app actuelle obsolète",
+        "pas de suivi bagages",
+        "expérience fragmentée",
+        "engagement faible"
+      ],
+      "goals": [
+        "app moderne",
+        "parcours fluide",
+        "suivi temps réel",
+        "fidélisation",
+        "différenciation"
+      ],
       "stakeholders": [
         {
           "name": "Faouzi Dridi",
@@ -58,8 +69,18 @@
       "name": "Rebranding Tunisair Express",
       "description": "Refonte complète de l'identité visuelle pour refléter le positionnement 'low-cost premium' et rajeunir la marque. Logo, charte graphique, livrée avions, supports digitaux.",
       "current_stage": 6,
-      "pain_points": ["image vieillissante", "confusion avec Tunisair", "manque différenciation", "faible notoriété jeunes"],
-      "goals": ["identité moderne", "différenciation claire", "premium accessible", "attraction jeunes"],
+      "pain_points": [
+        "image vieillissante",
+        "confusion avec Tunisair",
+        "manque différenciation",
+        "faible notoriété jeunes"
+      ],
+      "goals": [
+        "identité moderne",
+        "différenciation claire",
+        "premium accessible",
+        "attraction jeunes"
+      ],
       "stakeholders": [
         {
           "name": "Nadia Hamdi",
@@ -94,8 +115,16 @@
       "name": "Formation Équipage Expérience Client",
       "description": "Programme de formation immersive pour cabin crew et personnel sol sur les nouveaux standards expérience client et usage des outils digitaux.",
       "current_stage": 8,
-      "pain_points": ["formation théorique peu engageante", "adoption outils faible", "standards service hétérogènes"],
-      "goals": ["formation engageante", "standards homogènes", "adoption digitale"],
+      "pain_points": [
+        "formation théorique peu engageante",
+        "adoption outils faible",
+        "standards service hétérogènes"
+      ],
+      "goals": [
+        "formation engageante",
+        "standards homogènes",
+        "adoption digitale"
+      ],
       "stakeholders": [
         {
           "name": "Kamel Souissi",
@@ -120,5 +149,6 @@
       "created_at": "2026-02-15T10:00:00",
       "updated_at": "2026-03-13T10:30:00"
     }
-  ]
+  ],
+  "status": "client"
 }

@@ -8,7 +8,12 @@
 {% endfor %}
 <div class="page-header">
     <div>
-        <h1>{{ client.name }}</h1>
+        <h1>
+            {{ client.name }}
+            {% if client.status == 'prospect' %}
+            <span class="status-badge status-prospect">Piste Commerciale</span>
+            {% endif %}
+        </h1>
         <p class="subtitle">{{ client.industry or "Aucun secteur" }} | {{ client.region or "Aucune région" }} | {{ client.size or "Aucune taille" }} | Maturité Digitale : {{ client.digital_maturity }}/5</p>
     </div>
     <div class="header-actions">

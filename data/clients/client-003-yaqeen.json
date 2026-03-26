@@ -15,8 +15,19 @@
       "name": "App Bancaire Mobile-First",
       "description": "Création d'une application bancaire mobile nouvelle génération avec onboarding digital, paiements instantanés, gestion budgétaire assistée par IA et interface conversationnelle.",
       "current_stage": 5,
-      "pain_points": ["onboarding lent", "expérience fragmentée", "manque fonctionnalités modernes", "faible adoption jeunes"],
-      "goals": ["mobile-first", "onboarding rapide", "AI chatbot", "paiements instantanés", "acquisition jeunes"],
+      "pain_points": [
+        "onboarding lent",
+        "expérience fragmentée",
+        "manque fonctionnalités modernes",
+        "faible adoption jeunes"
+      ],
+      "goals": [
+        "mobile-first",
+        "onboarding rapide",
+        "AI chatbot",
+        "paiements instantanés",
+        "acquisition jeunes"
+      ],
       "stakeholders": [
         {
           "name": "Omar Al-Mahdi",
@@ -63,8 +74,18 @@
       "name": "Stratégie Marketing Digital",
       "description": "Refonte complète de la stratégie marketing avec branding moderne, présence réseaux sociaux, campagnes digitales ciblées et programme ambassadeurs jeunes.",
       "current_stage": 1,
-      "pain_points": ["brand perçu comme ancien", "faible présence digitale", "acquisition coûteuse", "faible notoriété jeunes"],
-      "goals": ["rebranding", "marketing digital", "social media", "acquisition organic"],
+      "pain_points": [
+        "brand perçu comme ancien",
+        "faible présence digitale",
+        "acquisition coûteuse",
+        "faible notoriété jeunes"
+      ],
+      "goals": [
+        "rebranding",
+        "marketing digital",
+        "social media",
+        "acquisition organic"
+      ],
       "stakeholders": [
         {
           "name": "Salma Ghariani",
@@ -82,5 +103,6 @@
       "created_at": "2026-03-01T10:00:00",
       "updated_at": "2026-03-11T15:00:00"
     }
-  ]
+  ],
+  "status": "client"
 }

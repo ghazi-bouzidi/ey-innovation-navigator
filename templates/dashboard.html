@@ -56,7 +56,12 @@
                     {% endif %}
                 </div>
                 <div class="client-card-info">
-                    <h3>{{ client.name or "Sans titre" }}</h3>
+                    <h3>
+                        {{ client.name or "Sans titre" }}
+                        {% if client.status == 'prospect' %}
+                        <span class="status-badge status-prospect">Piste</span>
+                        {% endif %}
+                    </h3>
                     <p class="client-card-industry">{{ client.industry or "Aucun secteur" }}</p>
                 </div>
             </div>

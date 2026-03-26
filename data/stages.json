@@ -1,5 +1,18 @@
 [
   {
+    "id": 0,
+    "name": "Exploration & Immersion",
+    "description": "Phase de pré-engagement visant à aligner la vision par le prototypage rapide et l'immersion.",
+    "activities": [
+      "Prototypage Rapide (RDP) de la vision cible",
+      "Workshop d'immersion via le Serious Gaming (Transfopoly)",
+      "Priorisation collective des enjeux via NEXUS",
+      "Pitch immersif Web 3D / Spatial",
+      "Démo functional MVP AI-powered (Factory.AI)"
+    ],
+    "innovation_focus": "Démontrer la valeur par le faire et l'expérience immersive avant le kick-off."
+  },
+  {
     "id": 1,
     "name": "Kick-off & Cadrage",
     "description": "Alignement sur le périmètre, les objectifs, la gouvernance et la mise en place de la mission.",

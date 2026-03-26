@@ -5,7 +5,13 @@
 <div class="page-header">
     <div>
         <h1>{{ project.name }}</h1>
-        <p class="subtitle">{{ client.name }} | {{ client.industry or "N/A" }} | Maturité Digitale : {{ client.digital_maturity }}/5 | Étape Actuelle : {{ project.current_stage }}</p>
+        <p class="subtitle">
+            {{ client.name }} 
+            {% if client.status == 'prospect' %}
+            <span class="status-badge status-prospect">Piste Commerciale</span>
+            {% endif %}
+            | {{ client.industry or "N/A" }} | Maturité Digitale : {{ client.digital_maturity }}/5 | Étape Actuelle : {{ project.current_stage }}
+        </p>
     </div>
     <div class="header-actions">
         <a href="{{ url_for('edit_project', client_id=client.id, project_id=project.id) }}" class="btn">Modifier le Projet</a>
@@ -53,7 +59,13 @@
         </div>
         {% if project.current_stage < 8 %}
         <form method="POST" action="{{ url_for('advance_stage', client_id=client.id, project_id=project.id) }}" style="margin-top: 0.25rem;" onsubmit="return confirm('Passer à l\'étape suivante ?');">
-            <button type="submit" class="btn btn-primary">Avancer à l'étape suivante &rarr;</button>
+            <button type="submit" class="btn btn-primary">
+                {% if project.current_stage == 0 %}
+                Convertir en Mission &rarr;
+                {% else %}
+                Avancer à l'étape suivante &rarr;
+                {% endif %}
+            </button>
         </form>
         {% endif %}
     </div>
