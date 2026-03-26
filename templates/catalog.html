@@ -8,15 +8,21 @@
 </div>
 
 <!-- Stage Tabs -->
-<div class="stage-tabs">
-    <a href="{{ url_for('catalog_browse', type=type_filter) }}" class="stage-tab {{ 'active' if not stage_filter else '' }}">
-        Toutes
-    </a>
-    {% for s in stages %}
-    <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}" title="Étape {{ s.id }}: {{ s.name }}">
-        {{ s.name }}
-    </a>
-    {% endfor %}
+<div class="stage-tabs-container">
+    <div class="stage-tabs">
+        <a href="{{ url_for('catalog_browse', type=type_filter) }}" class="stage-tab {{ 'active' if not stage_filter else '' }}">
+            <span class="tab-label">Toutes</span>
+        </a>
+        {% for s in stages %}
+        <a href="{{ url_for('catalog_browse', stage=s.id, type=type_filter) }}" class="stage-tab {{ 'active' if s.id|string == stage_filter else '' }}">
+            <span class="tab-number">{{ s.id }}</span>
+            <div class="tab-content">
+                <span class="tab-name">{{ s.name }}</span>
+                <span class="tab-desc">{{ s.description[:40] }}{% if s.description|length > 40 %}...{% endif %}</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </div>
 
 <!-- Results count and Type Filter row -->

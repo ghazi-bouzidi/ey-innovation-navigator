@@ -57,7 +57,7 @@
             <h2>Parcours Innovation</h2>
             <p class="muted">Cliquez sur une étape pour voir les services recommandés.</p>
         </div>
-        {% if project.current_stage < 8 %}
+        {% if project.current_stage < 7 %}
         <form method="POST" action="{{ url_for('advance_stage', client_id=client.id, project_id=project.id) }}" style="margin-top: 0.25rem;" onsubmit="return confirm('Passer à l\'étape suivante ?');">
             <button type="submit" class="btn btn-primary">
                 {% if project.current_stage == 0 %}

@@ -1510,52 +1510,93 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
     }
 }
 
-/* ==========================================================================
-   Catalog Page - Stage Tabs & Filters
-   ========================================================================== */
+/* Catalog Page - Stage Tabs & Filters */
+.stage-tabs-container {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    padding: 0.5rem 0.25rem;
+}
+
+.stage-tabs {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.stage-tab {
+    flex: 0 0 auto;
+    width: 160px;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.stage-tab:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    transform: translateY(-3px);
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stage-tab.active {
+    background: #fff9c4;
+    border-color: #ffe600;
+    box-shadow: 0 6px 16px rgba(255, 230, 0, 0.2);
+}
+
+.tab-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.active .tab-number { color: #92400e; }
+
+.tab-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.25;
+    display: block;
+}
+
+.tab-desc {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    line-height: 1.4;
+    display: block;
+}
+.active .tab-desc { color: #6b7280; }
+
+.tab-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: auto 0;
+    text-align: center;
+    width: 100%;
+}
+
 /* Catalog Subheader (count + type filter) */
 .catalog-subheader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0 1.5rem 0;
+    margin: 1.5rem 0;
 }
 
 .catalog-subheader .muted {
     margin: 0;
-}
-
-/* Stage Tabs */
-.stage-tabs {
-    display: flex;
-    gap: 0.15rem;
-    flex-wrap: nowrap;
-    background: #f3f4f6;
-    padding: 0.2rem;
-    border-radius: 8px;
-}
-
-.stage-tab {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: #6b7280;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.15s ease;
-    white-space: nowrap;
-}
-
-.stage-tab:hover {
-    background: #e5e7eb;
-    color: #1a1a2e;
-    text-decoration: none;
-}
-
-.stage-tab.active {
-    background: #fff9c4;
-    color: #1a1a2e;
-    font-weight: 600;
 }
 
 /* Type Filter */
@@ -1564,12 +1605,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 }
 
 .type-select {
-    padding: 0.55rem 2rem 0.55rem 1rem;
+    padding: 0.55rem 2.5rem 0.55rem 1rem;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     border: 1px solid #d1d5db;
-    border-radius: 8px;
-    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+    border-radius: 10px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 1rem center;
     appearance: none;
     cursor: pointer;
     color: #374151;
@@ -1578,6 +1619,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 
 .type-select:hover {
     border-color: #9ca3af;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .type-select:focus {
@@ -1588,17 +1630,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 
 /* Catalog Tabs Responsive */
 @media (max-width: 768px) {
-    .catalog-filters-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .stage-tabs {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
-
     .type-filter {
         width: 100%;
     }
@@ -1607,8 +1638,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
         width: 100%;
     }
 }
-
-/* ==========================================================================
    Dashboard - View Toggle & Client Cards
    ========================================================================== */
 

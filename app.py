@@ -378,7 +378,7 @@ def advance_stage(client_id, project_id):
 
     current = project.get("current_stage", 1)
     new_stage = current
-    if current < 8:
+    if current < 7:
         new_stage = current + 1
         project["current_stage"] = new_stage
         project["updated_at"] = datetime.now().isoformat()
